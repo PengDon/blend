@@ -55,20 +55,36 @@ alias: {
 ```
 yarn add react-router react-router-dom
 ```
-1.添加数据管理mobx
+1. 添加数据管理mobx
 ```
 yarn add mobx mobx-react
-# 安装 babel 的装饰器插件
-yarn add babel-plugin-transform-decorators-legacy
 ```
-* 修改 package.json 文件中的 babel 参数，或者在根目录下新建一个 .babelrc 文件
+1. Mobx中装饰器语法的环境配置
+```
+# 安装装饰器所需依赖
+cnpm i -D babel-plugin-transform-decorators-legacy
+# 安装应用配置
+cnpm i @babel/plugin-proposal-decorators
+```
+* 配置package.json
 ```
 "babel": {
-  "presets": [
-    "react-app"
-  ],
-  "plugins": [
-    "babel-plugin-transform-decorators-legacy"
-  ]
-...
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-decorators",
+        {
+          "legacy": true
+        }
+      ],
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ]
+    ]
+  },
 ```
