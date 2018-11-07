@@ -90,5 +90,5 @@ cnpm i @babel/plugin-proposal-decorators
 ```
 1. 添加数据请求 axios
 ```
-yarn add axios
+cnpm i -S axios
 ```
