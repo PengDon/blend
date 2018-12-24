@@ -4,11 +4,12 @@ module.exports = app => {
  
   // 定义了表数据的类型
   const UserSchema = new Schema({
-    name: { type: String  },
-    password: { type: String},
-    roleType:{type : Number },
-    createTime:{type : String },
-    loginTime:{type : String }
+    userId:{type:Number,unique:true,required:true},
+    name: {type: String },
+    password: {type: String},
+    roleType:{type : Number},
+    createTime:{type : String},
+    loginTime:{type : String}
   });
   
   // model(参数1，参数2，参数3）参数3是你数据表中需要操作的表的名字，

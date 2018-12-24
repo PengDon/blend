@@ -26,6 +26,7 @@ db.p_user.drop();
 # 插入数据
 db.p_user.insert([
     {
+      userId:1,
       name:'admin',
       password:'admin123',
       roleType:1,
