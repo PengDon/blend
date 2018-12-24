@@ -18,5 +18,4 @@ export default {
     async queryByKey(key){
         return await axios.get('https://easy-mock.com/mock/5be8e737aebfd849286cd74f/queryByKey?name='+key).then((res) => res.data.data);
     }
-
 }
