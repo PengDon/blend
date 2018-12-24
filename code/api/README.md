@@ -1,7 +1,5 @@
 # pc
 
-
-
 ## QuickStart
 
 <!-- add docs here for user -->
@@ -32,6 +30,11 @@ $ npm stop
 
 [egg]: https://eggjs.org
 
+
+## 开发流程
+```
+ model->service->controller->route->view
+```
 
 ## 安装egg-mongo-native用以支持mongodb数据库
 ```
