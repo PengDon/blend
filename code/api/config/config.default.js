@@ -1,6 +1,5 @@
 'use strict';
 
-// const mongoose = require('mongoose');
 module.exports = appInfo => {
   const config = exports = {};
 
@@ -10,20 +9,13 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = [];
 
-  // // egg-mongo-native connect mongo
-  // config.mongo = {
-  //   client: {
-  //     host: '127.0.0.1',
-  //     port: '27017',
-  //     name: 'psm',
-  //     user: '',
-  //     password: '',
-  //   },
-  // };
-
   config.mongoose = {
     url: 'mongodb://127.0.0.1:27017/psm',
     options: {},
+  };
+
+  config.view = {
+    mapping: {'.html': 'ejs'} // 左边写成.html后缀，会自动渲染.html文件
   };
 
   return config;

@@ -36,14 +36,20 @@ $ npm stop
  model->service->controller->route->view
 ```
 
-## 安装egg-mongo-native用以支持mongodb数据库
+## 添加mongodb数据库支持
 ```
-cnpm i egg-mongo-native -S
+# [egg-mongoose](https://github.com/eggjs/egg-mongoose)
 cnpm i egg-mongoose -S
 ```
 
-## 安装egg-mongoose用以支持mongodb数据库
+## 添加统一验证
 ```
-cnpm i egg-mongoose -S
+# [egg-validate](https://github.com/eggjs/egg-validate)
+cnpm i egg-validate -S
 ```
 
+## 添加视图模板
+```
+# [egg-view-ejs](https://github.com/eggjs/egg-view-ejs)
+cnpm i egg-view-ejs  -S
+```
