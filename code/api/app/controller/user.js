@@ -8,8 +8,13 @@ class UserController extends Controller {
     const { ctx } = this;
     // ctx.service.[service目录下要调用的文件名称]
     let userList = await ctx.service.user.queryUserList();
-    console.log('============查询用户列表============', userList);
     ctx.body = userList;
+  }
+
+  async getUserByName(){
+    const {ctx} = this;
+    let user = await ctx.service.user.queryUserByName(ctx.params);
+    ctx.body = user;
   }
 }
 

@@ -36,6 +36,11 @@ $ npm stop
  model->service->controller->route->view
 ```
 
+## eggjs手脚架
+```
+cnpm i egg-init -g
+```
+
 ## 添加mongodb数据库支持
 ```
 # [egg-mongoose](https://github.com/eggjs/egg-mongoose)
