@@ -15,3 +15,6 @@ h5 web back
 [Ant Design Pro](https://pro.ant.design/)
 [vue](https://cn.vuejs.org/)
 [mpvue](http://mpvue.com/)
+[node](http://nodejs.cn/)
+[ptyhon3](http://www.runoob.com/python3/python3-tutorial.html)
+[Scrapy][1](https://scrapy.org/)[2](http://www.runoob.com/w3cnote/scrapy-detail.html)[3](http://www.scrapyd.cn/)
