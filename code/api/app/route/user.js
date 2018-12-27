@@ -6,5 +6,5 @@ module.exports = app => {
   // 用户登录
   app.router.post('/api/v1/login', app.controller.user.login);
   
-  app.router.get('/api/v1/setUser/', app.controller.user.setUserStatus);
+  app.router.get('/api/v1/setUser/:userId', app.controller.user.setUserStatus);
 };
