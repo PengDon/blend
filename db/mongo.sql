@@ -100,5 +100,8 @@ db.p_menu.insert([
     }
 ]);
 
+// 查询菜单表
 db.p_menu.find();
+// 根据参数查询菜单表并只返回指定字段
+db.p_menu.find({sort:3},{name:1});
 
