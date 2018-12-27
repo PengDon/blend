@@ -27,7 +27,8 @@ db.p_user.insert([
       loginTime:''
     }
     ]);
-   
+// 删除p_user表数据   
+db.p_user.drop();
 // 查询p_user表数据
 db.p_user.find();   
 // 根据条件查询数据
@@ -48,6 +49,6 @@ db.p_role.insert([
     }
 ]);
 
-
+// 查询用户角色表（p_role）
 db.p_role.find();
  
