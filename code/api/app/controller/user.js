@@ -19,8 +19,8 @@ class UserController extends Controller {
 
   async login(){
     const {ctx} = this;
-    // console.log(ctx.params);
-    let bool = await ctx.service.user.login(ctx.params);
+    console.log('===========请求参数=============',ctx.request.body);
+    let bool = await ctx.service.user.login(ctx.request.body);
     ctx.body = bool;
   }
 }

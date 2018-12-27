@@ -5,9 +5,15 @@ module.exports = appInfo => {
 
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1545363397110_3339';
-
+  
   // add your config here
   config.middleware = [];
+
+  config.security = {
+    csrf: {
+      enable: false,
+    }
+   }
 
   config.mongoose = {
     url: 'mongodb://127.0.0.1:27017/psm',
