@@ -16,6 +16,13 @@ class UserController extends Controller {
     let user = await ctx.service.user.queryUserByName(ctx.params);
     ctx.body = user;
   }
+
+  async login(){
+    const {ctx} = this;
+    // console.log(ctx.params);
+    let bool = await ctx.service.user.login(ctx.params);
+    ctx.body = bool;
+  }
 }
 
 module.exports = UserController;

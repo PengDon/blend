@@ -3,4 +3,6 @@ module.exports = app => {
   app.router.get('/getUserList', app.controller.user.list);
   // 根据name查询用户
   app.router.get('/user/:name', app.controller.user.getUserByName);
+
+  app.router.get('/user/:name/:password', app.controller.user.login);
 };
