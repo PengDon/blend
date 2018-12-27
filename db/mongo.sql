@@ -33,12 +33,13 @@ db.p_user.insert([
 // 删除p_user表数据   
 db.p_user.drop();
 // 查询p_user表数据
-db.p_user.find();   
+db.p_user.find().pretty();   
 // 根据条件查询数据
 db.p_user.find({ name: 'admin', password: 'admin123' });
 // 单条更新数据
 db.p_user.update({'name':'wx20181213'},{$set:{ 'roleType':2}});
 db.p_user.update({'name':'wx20181214'},{$set:{ 'roleType':2}});
+db.p_user.update({userId:1},{$set:{ status:false}});
 
 // 角色表（p_role)插入数据
 db.p_role.insert([
