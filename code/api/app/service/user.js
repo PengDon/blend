@@ -48,7 +48,7 @@ class UserService extends Service {
       )
       .then(res => {
         console.log('------res--------',res);
-        if(res.nModified){
+        if(res.ok){
           return { success: true, msg: "数据更新成功", code: 0};
         }else{
           return { success: true, msg: "数据更新失败", code: 0};
