@@ -1,4 +1,5 @@
 export default {
+  singular: true,
   plugins: [
     ['umi-plugin-react', {
       antd: true,
@@ -14,6 +15,10 @@ export default {
         component: './index'
       },
       {
+        path: '/user',
+        component: './user'
+      },
+      {
         path: '/dashboard',
         routes: [
           { path: '/dashboard/analysis', component: './Dashboard/Analysis' },
@@ -23,4 +28,10 @@ export default {
       },
     ]
   }],
+  proxy: {
+    '/api': {
+      target: 'http://127.0.0.1:7001',
+      changeOrigin: true,
+    },
+  },
 };
