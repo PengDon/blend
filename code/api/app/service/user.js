@@ -77,7 +77,7 @@ class UserService extends Service {
     return this.ctx.model.User.create(user)
     .then(res=>{
       console.log('------res--------',res);
-      if(res.success){
+      if(res){
         return { success: true, msg: "用户添加成功", code: 0};
       }else{
         return { success: true, msg: "用户添加失败", code: 0};
