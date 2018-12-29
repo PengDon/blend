@@ -26,9 +26,12 @@ class UserController extends Controller {
 
   async setUserStatus(){
     const {ctx} = this;
-    console.log('===========请求参数=============',ctx.params);
-    let res = await ctx.service.user.resetUserStatus(ctx.params.userId);
-    ctx.body = res;
+    let userId='';
+    if(ctx.request.body){
+      userId=ctx.request.body.userId;
+    }
+    let bool = await ctx.service.user.resetUserStatus(userId);
+    ctx.body = bool;
   }
 
   async addUser(){
