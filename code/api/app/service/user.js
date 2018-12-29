@@ -83,6 +83,22 @@ class UserService extends Service {
       return { success: false, err: err };
     });
   }
+
+  // 删除用户根据userId
+  async delUser(id){
+    return this.ctx.model.User.remove({userId:id})
+    .then(res=>{
+      console.log('------res--------',res);
+      if(res.ok){
+        return { success: true, msg: "删除用户成功", code: 0};
+      }else{
+        return { success: true, msg: "删除用户失败", code: 0};
+      }
+    })
+    .catch(err=>{
+      return { success: false, err: err };
+    });
+  }
 }
 
 module.exports = UserService;

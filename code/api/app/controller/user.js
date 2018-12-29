@@ -20,22 +20,29 @@ class UserController extends Controller {
   async login(){
     const {ctx} = this;
     console.log('===========请求参数=============',ctx.request.body);
-    let bool = await ctx.service.user.login(ctx.request.body);
-    ctx.body = bool;
+    let res = await ctx.service.user.login(ctx.request.body);
+    ctx.body = res;
   }
 
   async setUserStatus(){
     const {ctx} = this;
     console.log('===========请求参数=============',ctx.params);
-    let bool = await ctx.service.user.resetUserStatus(ctx.params.userId);
-    ctx.body = bool;
+    let res = await ctx.service.user.resetUserStatus(ctx.params.userId);
+    ctx.body = res;
   }
 
   async addUser(){
     const {ctx} = this;
     console.log('===========请求参数=============',ctx.request.body);
-    let bool = await ctx.service.user.addUser(ctx.request.body);
-    ctx.body = bool;  
+    let res = await ctx.service.user.addUser(ctx.request.body);
+    ctx.body = res;  
+  }
+
+  async delUser(){
+    const {ctx} = this;
+    console.log('===========请求参数=============',ctx.params);
+    let res = await ctx.service.user.delUser(ctx.params.userId);
+    ctx.body = res;
   }
 }
 
