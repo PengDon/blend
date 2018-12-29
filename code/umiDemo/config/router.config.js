@@ -14,8 +14,6 @@ export default [
   {
     path: '/',
     component: '../layout',
-    Routes: ['src/pages/Authorized'],
-    authority: ['admin', 'user'],
     routes: [
       {
         path: '/',
