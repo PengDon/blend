@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Table,Card} from 'antd';
+import { Table , Modal, Button, Form, Input,Select } from 'antd';
+
+const FormItem = Form.Item;
+const Option = Select.Option;
 
 class UserPage extends Component {
+  state = {
+    visible: false,
+    id: null,
+  };
 
   columns = [
     {
@@ -16,6 +23,22 @@ class UserPage extends Component {
     {
       title: '角色类型',
       dataIndex: 'roleType',
+      render: value => {
+        switch (value) {
+          case 1:
+            return '管理员';
+            break;
+          case 2:
+            return '普通用户';
+            break;
+          case 3:
+            return 'vip用户';
+            break;
+          default:
+            return '异常用户';
+            break;
+        }
+      },
     },
     {
       title: '登录状态',
@@ -34,20 +57,80 @@ class UserPage extends Component {
     });
   };
 
+  showModal = () => {
+    this.setState({ visible: true });
+  };
+
+  handleOk = () => {
+    const { dispatch, form: { validateFields } } = this.props;
+
+    validateFields((err, values) => {
+      console.log('=====当前输入对象=====',values)
+      values.roleType = values.roleType.key;
+      console.log('=====重构后的对象=====',values)
+      if (!err) {
+        dispatch({
+          type: 'user/addUser',
+          payload: values,
+        });
+        this.setState({ visible: false });
+      }
+    });
+  }
+
+  handleCancel = () => {
+    this.setState({
+      visible: false,
+    });
+  }
+
+  handleChange = (value) => {
+    console.log('当前选中的值',value)
+  }
+
   render() {
-    const { userList = [] } = this.props;
-    console.log('userList');
-    console.log(userList);
+    const { visible } = this.state;
+    const { userList = [], form: { getFieldDecorator } } = this.props;
 
     return (
       <div>
-        {userList.map(v => <Card
-          key={v.userId}
-          title={v.name}
-          style={{ width: 300, marginBottom: '16px' }}
-        >{v.createTime}</Card>)}
+        <Table columns={this.columns} dataSource={userList}  rowKey="userId" />
 
-        <Table columns={this.columns} dataSource={userList}  rowKey="id" />
+        <Button onClick={this.showModal}>新建</Button>
+
+        <Modal
+          title="新建记录"
+          visible={visible}
+          onOk={this.handleOk}
+          onCancel={this.handleCancel}
+        >
+          <Form>
+            <FormItem label="名称">
+              {getFieldDecorator('name', {
+                rules: [{ required: true }],
+              })(
+                <Input />
+              )}
+            </FormItem>
+            <FormItem label="密码">
+              {getFieldDecorator('password', {
+                rules: [{ required: true }],
+              })(
+                <Input type="password"/>
+              )}
+            </FormItem>
+            <FormItem label="角色">
+              {getFieldDecorator('roleType', {
+                rules: [{ required: true }],
+              })(
+                <Select labelInValue onChange={this.handleChange}>
+                  <Option value="2">普通用户</Option>
+                  <Option value="3">vip用户</Option>
+                </Select>
+              )}
+            </FormItem>
+          </Form>
+        </Modal>
       </div>
     );
   }
@@ -61,4 +144,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(UserPage);
+export default connect(mapStateToProps)(Form.create()(UserPage));

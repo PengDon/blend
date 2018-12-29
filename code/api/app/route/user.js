@@ -7,4 +7,6 @@ module.exports = app => {
   app.router.post('/api/v1/login', app.controller.user.login);
   
   app.router.get('/api/v1/setUser/:userId', app.controller.user.setUserStatus);
+
+  app.router.post('/api/v1/addUser', app.controller.user.addUser);
 };

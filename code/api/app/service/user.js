@@ -1,7 +1,7 @@
 "use strict";
 
 const Service = require("egg").Service;
-
+const utils = require("../extend/tool");
 class UserService extends Service {
   // 查询用户列表
   async queryUserList() {
@@ -57,6 +57,31 @@ class UserService extends Service {
       .catch(err => {
         return { success: false, err: err };
       });
+  }
+  
+  // 添加用户信息
+  async addUser(user){
+    let obj = {
+      userId:utils.UUId(),
+      status:false,
+      createTime:utils.FormatDate("YYYY-MM-DD HH:mm"),
+      loginTime:''
+    }
+    user = Object.assign({},obj,user);
+    console.log('----默认对象-----',user);
+    
+    return this.ctx.model.User.create(user)
+    .then(res=>{
+      console.log('------res--------',res);
+      if(res.success){
+        return { success: true, msg: "用户添加成功", code: 0};
+      }else{
+        return { success: true, msg: "用户添加失败", code: 0};
+      }
+    })
+    .catch(err=>{
+      return { success: false, err: err };
+    });
   }
 }
 

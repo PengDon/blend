@@ -30,6 +30,13 @@ class UserController extends Controller {
     let bool = await ctx.service.user.resetUserStatus(ctx.params.userId);
     ctx.body = bool;
   }
+
+  async addUser(){
+    const {ctx} = this;
+    console.log('===========请求参数=============',ctx.request.body);
+    let bool = await ctx.service.user.addUser(ctx.request.body);
+    ctx.body = bool;  
+  }
 }
 
 module.exports = UserController;
