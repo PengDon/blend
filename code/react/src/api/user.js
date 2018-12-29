@@ -7,6 +7,6 @@ export default {
      * @returns {Promise.<*>}
      */
     async getList(){
-        return await axios.get('/getUserList').then((res) => res.data);
+        return await axios.get('/api/v1/getUserList').then((res) => res.data.data);
     }
 }
