@@ -48,10 +48,10 @@ class UserPage extends Component {
     {
       title: '操作',
       key: 'action',
-      render:()=>{
+      render:(obj)=>{
         return (
           <span>
-            <a onClick={e => this.remove(record.key)}>删除</a>
+            <a onClick={e => this.remove(obj.userId)}>删除</a>
           </span>
         );
       },
@@ -99,10 +99,10 @@ class UserPage extends Component {
     console.log('当前选中的值',value)
   }
 
-  remove(key) {
-    dispatch({
+  remove(userId){
+    this.props.dispatch({
       type:'user/delUser',
-      payload:key,
+      payload:userId,
     });
   }
 

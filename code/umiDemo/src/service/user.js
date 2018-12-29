@@ -17,3 +17,7 @@ export function addUser(data){
     body: JSON.stringify(data),
   });
 }
+
+export function delUser(userId){
+  return request('/api/v1/delUser/'+userId);
+} 
