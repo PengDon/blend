@@ -1,8 +1,29 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import { Card} from 'antd';
+import { Table,Card} from 'antd';
 
 class UserPage extends Component {
+
+  columns = [
+    {
+      title: '用户编号',
+      dataIndex: 'userId',
+    },
+    {
+      title: '名称',
+      dataIndex: 'name',
+    },
+    {
+      title: '角色类型',
+      dataIndex: 'roleType',
+    },
+    {
+      title: '登录状态',
+      dataIndex: 'status',
+      render: value => value?'已登录':'未登录',
+    },
+  ];
+
   componentDidMount() {
     this.queryList();
   }
@@ -25,6 +46,8 @@ class UserPage extends Component {
           title={v.name}
           style={{ width: 300, marginBottom: '16px' }}
         >{v.createTime}</Card>)}
+
+        <Table columns={this.columns} dataSource={userList}  rowKey="id" />
       </div>
     );
   }
