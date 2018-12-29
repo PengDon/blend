@@ -44,6 +44,20 @@ export default class BasicLayout extends Component {
                 <Link to="/dashboard/workplace">工作台</Link>
               </Menu.Item>
             </SubMenu>
+
+            <SubMenu
+              key="sub2"
+              title={
+                <span>
+                  <Icon type="table" />
+                  <span>用户管理</span>
+                </span>
+              }
+            >
+              <Menu.Item key="5">
+                <Link to="/user/list">用户列表</Link>
+              </Menu.Item>
+            </SubMenu>
           </Menu>
         </Sider>
         <Layout>

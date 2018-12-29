@@ -16,7 +16,9 @@ export default {
       },
       {
         path: '/user',
-        component: './user'
+        routes: [
+          { path: '/user/list', component: './User/List' },
+        ]
       },
       {
         path: '/dashboard',
