@@ -9,7 +9,8 @@ module.exports = app => {
     password: {type: String},
     roleType:{type : Number},
     createTime:{type : String},
-    loginTime:{type : String}
+    loginTime:{type : String},
+    status:{type:Boolean}
   });
   
   // model(参数1，参数2，参数3）参数3是你数据表中需要操作的表的名字，

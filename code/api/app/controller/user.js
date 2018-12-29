@@ -20,15 +20,17 @@ class UserController extends Controller {
   async login(){
     const {ctx} = this;
     console.log('===========请求参数=============',ctx.request.body);
-    let bool = await ctx.service.user.login(ctx.request.body);
-    ctx.body = bool;
+    let res = await ctx.service.user.login(ctx.request.body);
+    ctx.body = res;
   }
 
   async setUserStatus(){
     const {ctx} = this;
-    console.log('===========请求参数=============',ctx.params);
-    console.log('===========请求参数=============',parseInt(ctx.params.userId));
-    let bool = await ctx.service.user.resetUserStatus(parseInt(ctx.params.userId));
+    let userId='';
+    if(ctx.request.body){
+      userId=ctx.request.body.userId;
+    }
+    let bool = await ctx.service.user.resetUserStatus(userId);
     ctx.body = bool;
   }
 }
