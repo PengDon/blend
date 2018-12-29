@@ -45,6 +45,17 @@ class UserPage extends Component {
       dataIndex: 'status',
       render: value => value?'已登录':'未登录',
     },
+    {
+      title: '操作',
+      key: 'action',
+      render:()=>{
+        return (
+          <span>
+            <a onClick={e => this.remove(record.key)}>删除</a>
+          </span>
+        );
+      },
+    },
   ];
 
   componentDidMount() {
@@ -86,6 +97,13 @@ class UserPage extends Component {
 
   handleChange = (value) => {
     console.log('当前选中的值',value)
+  }
+
+  remove(key) {
+    dispatch({
+      type:'user/delUser',
+      payload:key,
+    });
   }
 
   render() {
