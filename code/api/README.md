@@ -58,3 +58,16 @@ cnpm i egg-validate -S
 # [egg-view-ejs](https://github.com/eggjs/egg-view-ejs)
 cnpm i egg-view-ejs  -S
 ```
+
+## 添加时间插件
+```
+# [moment](http://momentjs.com/)
+cnpm i moment -S
+```
+
+## 添加生成随机数的插件
+```
+# [string-random](https://www.npmjs.com/package/string-random)
+cnpm i string-random -S
+```
+

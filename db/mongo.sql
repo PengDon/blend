@@ -30,16 +30,30 @@ db.p_user.insert([
       loginTime:''
     }
     ]);
-// 删除p_user表数据   
+  
+  db.p_user.insert({
+      name:'jsding',
+      password:'abc123',
+      roleType:2,
+      status:false, // 当前登录状态 ，默认false
+      createTime:'2018-12-25 15:13',
+      loginTime:''
+  })  
+// 删除指定数据
+db.p_user.remove({name:'jsding'});    
+// 删除所有数据（p_user表）
+db.p_user.remove();
+// 删除集合（p_user表） 
 db.p_user.drop();
 // 查询p_user表数据
-db.p_user.find();   
+db.p_user.find().pretty();   
 // 根据条件查询数据
 db.p_user.find({ name: 'admin', password: 'admin123' });
 // 单条更新数据
 db.p_user.update({'name':'wx20181213'},{$set:{ 'roleType':2}});
 db.p_user.update({'name':'wx20181214'},{$set:{ 'roleType':2}});
-
+db.p_user.update({userId:1},{$set:{ status:false}});
+    
 // 角色表（p_role)插入数据
 db.p_role.insert([
     {
@@ -99,5 +113,8 @@ db.p_menu.insert([
     }
 ]);
 
+// 查询菜单表
 db.p_menu.find();
+// 根据参数查询菜单表并只返回指定字段
+db.p_menu.find({sort:3},{name:1});
 
