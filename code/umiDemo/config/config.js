@@ -1,3 +1,5 @@
+import pageRoutes from './router.config';
+
 export default {
   singular: true,
   plugins: [
@@ -6,30 +8,7 @@ export default {
       dva:true, 
     }],
   ],
-  routes: [{
-    path: '/',
-    component: '../layout',
-    routes: [
-      {
-        path: '/',
-        component: './index'
-      },
-      {
-        path: '/user',
-        routes: [
-          { path: '/user/list', component: './User/List' },
-        ]
-      },
-      {
-        path: '/dashboard',
-        routes: [
-          { path: '/dashboard/analysis', component: './Dashboard/Analysis' },
-          { path: '/dashboard/monitor', component: './Dashboard/Monitor' },
-          { path: '/dashboard/workplace', component: './Dashboard/Workplace' }
-        ]
-      },
-    ]
-  }],
+  routes: pageRoutes,
   proxy: {
     '/api': {
       target: 'http://127.0.0.1:7001',
