@@ -21,3 +21,13 @@ export function addUser(data){
 export function delUser(userId){
   return request('/api/v1/delUser/'+userId);
 } 
+
+export function login(user){
+  return request('/api/v1/login',{
+    headers: {
+      'content-type': 'application/json',
+    },
+    method: 'POST',
+    body: JSON.stringify(user),
+  });
+}

@@ -10,14 +10,14 @@ export default {
 
   effects: {
     *queryList({ _ }, { call, put }) {
-      const rsp = yield call(userService.queryList);
-      console.log('--------queryList-----------',rsp.data.data);
-      yield put({ type: 'saveList', payload: { userList: rsp.data.data } });
+      const res = yield call(userService.queryList);
+      console.log('--------queryList-----------',res.data.data);
+      yield put({ type: 'saveList', payload: { userList: res.data.data } });
     },
     *addUser({ payload }, { call, put }){
-      const rsp = yield call(userService.addUser, payload)
+      const res = yield call(userService.addUser, payload)
       yield put({ type: 'queryList' });
-      return rsp;
+      return res;
     },
     *delUser({payload},{call,put}){
       const res = yield call(userService.delUser,payload);
@@ -25,6 +25,12 @@ export default {
         yield put({ type: 'queryList' });
       }
       return res;
+    },
+    *login(payload,{call}){
+      const res = yield call(userService.login,payload);
+      if(res.data.success){
+         // 登录成功后，跳转到首页
+      }
     }
 
   },

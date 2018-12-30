@@ -24,6 +24,7 @@ class UserService extends Service {
   }
   // 用户登录
   async login(param) {
+    console.log('-----get params-----',param)
     return this.ctx.model.User.find(param)
       .then(res => {
         console.log('------res--------',res);
