@@ -5,12 +5,26 @@ import {
   } from 'antd';
 import styles from './Login.less';
 
+@connect(({ login, loading }) => ({
+  login,
+  submitting: loading.effects['login/login'],
+}))
 
 class LoginPage extends Component {
+  state = {
+    autoLogin: true,
+  };
 
   componentDidMount() {
     
   }
+
+  changeAutoLogin = e => {
+    this.setState({
+      autoLogin: e.target.checked,
+    });
+  };
+
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +38,7 @@ class LoginPage extends Component {
         console.log('=====重构后的对象====',obj);
 
         this.props.dispatch({
-            type:'user/login',
+            type:'login/login',
             payload:obj,
           });
       }
@@ -33,6 +47,9 @@ class LoginPage extends Component {
 
   render() {
     const { getFieldDecorator } = this.props.form;
+    const { login, submitting } = this.props;
+    const { type, autoLogin } = this.state;
+
     return (
       <Form onSubmit={this.handleSubmit} className={styles.main}>
         <Form.Item>
@@ -53,10 +70,11 @@ class LoginPage extends Component {
           {getFieldDecorator('remember', {
             valuePropName: 'checked',
             initialValue: true,
+            setFieldsValue:autoLogin,
           })(
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox onChange={this.changeAutoLogin}>Remember me</Checkbox>
           )}
-          <Button style={{ float: 'right' }} type="primary" htmlType="submit" className="login-form-button">
+          <Button style={{ float: 'right' }} loading={submitting} type="primary" htmlType="submit" className="login-form-button">
             Log in
           </Button>
         </Form.Item>

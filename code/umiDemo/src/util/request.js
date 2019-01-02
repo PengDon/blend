@@ -72,7 +72,7 @@ const cachedSave = (response, hashcode) => {
  */
 export default function request(url, option) {
   const options = {
-    expirys: false,
+    expirys: true,
     ...option,
   };
 
@@ -128,6 +128,8 @@ export default function request(url, option) {
       sessionStorage.removeItem(`${hashcode}:timestamp`);
     }
   }
+
+  console.log('-----最终参数-----',newOptions);
 
   return fetch(url, newOptions)
     .then(checkStatus)

@@ -1,9 +1,9 @@
 import { routerRedux } from 'dva/router';
 import { stringify } from 'qs';
 import { fakeAccountLogin, getFakeCaptcha } from '../service/api';
-import { setAuthority } from '../utils/authority';
-import { getPageQuery } from '../utils/utils';
-import { reloadAuthorized } from '../utils/Authorized';
+import { setAuthority } from '../util/authority';
+import { getPageQuery } from '../util/utils';
+import { reloadAuthorized } from '../util/Authorized';
 
 export default {
 
@@ -20,7 +20,8 @@ export default {
         type: 'changeLoginStatus',
         payload: res,
       });
-      if(res.data.success){
+      console.log('----登录------',res)
+      if(res.success){
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
@@ -41,7 +42,7 @@ export default {
          yield put(routerRedux.replace(redirect || '/'));
       }
     },
-    
+
     *getCaptcha({ payload }, { call }) {
       yield call(getFakeCaptcha, payload);
     },
@@ -54,7 +55,6 @@ export default {
       return {
         ...state,
         status: payload.status,
-        type: payload.type,
       };
     },
   },
