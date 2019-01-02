@@ -4,9 +4,6 @@ import request from '../util/request';
 
 export async function fakeAccountLogin(params){
   return request('/api/v1/login',{
-    headers: {
-      'content-type': 'application/json',
-    },
     method: 'POST',
     body: params,
   });
