@@ -1,4 +1,6 @@
 import * as userService from '../service/user';
+import { routerRedux } from 'dva/router';
+import { getPageQuery } from '../util/utils';
 
 export default {
 
@@ -26,10 +28,25 @@ export default {
       }
       return res;
     },
-    *login(payload,{call}){
+    *login(payload,{call, put}){
       const res = yield call(userService.login,payload);
       if(res.data.success){
+        const params = getPageQuery();
+        let { redirect } = params;
+        if (redirect) {
+          const redirectUrlParams = new URL(redirect);
+          if (redirectUrlParams.origin === urlParams.origin) {
+            redirect = redirect.substr(urlParams.origin.length);
+            if (redirect.match(/^\/.*#/)) {
+              redirect = redirect.substr(redirect.indexOf('#') + 1);
+            }
+          } else {
+            window.location.href = redirect;
+            return;
+          }
+        }
          // 登录成功后，跳转到首页
+         yield put(routerRedux.replace(redirect || '/'));
       }
     }
 
