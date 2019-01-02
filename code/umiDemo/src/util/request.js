@@ -129,8 +129,6 @@ export default function request(url, option) {
     }
   }
 
-  console.log('-----最终参数-----',newOptions);
-
   return fetch(url, newOptions)
     .then(checkStatus)
     .then(response => cachedSave(response, hashcode))

@@ -20,7 +20,7 @@ class UserController extends Controller {
   async login(){
     const {ctx} = this;
     console.log('===========请求参数=============',ctx.request.body);
-    let res = await ctx.service.user.login(ctx.request.body);
+    let res = await ctx.service.user.login(ctx.request.body.payload);
     ctx.body = res;
   }
 
