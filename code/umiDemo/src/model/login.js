@@ -16,12 +16,19 @@ export default {
   effects: {
     *login(payload,{call, put}){
       const res = yield call(fakeAccountLogin,payload);
-      yield put({
-        type: 'changeLoginStatus',
-        payload: res,
-      });
-      console.log('----登录------',res)
+      
       if(res.success){
+        if(res.data.roleType === 1){
+          res.currentAuthority = 'admin';
+        }else{
+          res.currentAuthority = 'user';
+        }
+  
+        yield put({
+          type: 'changeLoginStatus',
+          payload: res,
+        });
+
         reloadAuthorized();
         const urlParams = new URL(window.location.href);
         const params = getPageQuery();
