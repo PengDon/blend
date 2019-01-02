@@ -55,7 +55,7 @@ export default class BasicLayout extends Component {
               }
             >
               <Menu.Item key="5">
-                <Link to="/user/list">用户列表</Link>
+                <Link to="/account/center">账户管理</Link>
               </Menu.Item>
             </SubMenu>
           </Menu>

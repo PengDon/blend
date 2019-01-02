@@ -6,23 +6,25 @@ export default [
     routes: [
       { path: '/user', redirect: './User/Login' },
       { path: '/user/login', component: './User/Login' },
-      // { path: '/user/register', component: './User/Register' },
-      // { path: '/user/register-result', component: './User/RegisterResult' },
     ],
   },
   // app
   {
     path: '/',
     component: '../layout',
+    Routes: ['src/pages/Authorized'],
+    authority: ['admin', 'user'],
     routes: [
       {
         path: '/',
         component: './index'
       },
       {
-        path: '/user',
+        name: 'account',
+        icon: 'user',
+        path: '/account',
         routes: [
-          { path: '/user/list', component: './User/List' },
+          { path: '/account/center', component: './User/List' },
         ]
       },
       {

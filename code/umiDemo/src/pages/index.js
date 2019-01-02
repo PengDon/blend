@@ -6,6 +6,6 @@ export default () =>
     <h2>Pages</h2>
     <ul>
     <li><Link to="/user/login">登录</Link></li>
-      <li><Link to="/user/list">用户列表</Link></li>
+      <li><Link to="/account/center">账户管理</Link></li>
     </ul>
   </>

@@ -13,8 +13,8 @@ export default {
   effects: {
     *queryList({ _ }, { call, put }) {
       const res = yield call(userService.queryList);
-      console.log('--------queryList-----------',res.data.data);
-      yield put({ type: 'saveList', payload: { userList: res.data.data } });
+      console.log('--------queryList-----------',res.data);
+      yield put({ type: 'saveList', payload: { userList: res.data } });
     },
     *addUser({ payload }, { call, put }){
       const res = yield call(userService.addUser, payload)

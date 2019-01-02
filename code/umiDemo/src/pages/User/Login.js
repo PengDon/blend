@@ -6,7 +6,7 @@ import {
 import styles from './Login.less';
 
 
-class UserPage extends Component {
+class LoginPage extends Component {
 
   componentDidMount() {
     
@@ -71,4 +71,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Form.create()(UserPage));
+export default connect(mapStateToProps)(Form.create()(LoginPage));
