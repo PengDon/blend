@@ -12,3 +12,7 @@ export async function fakeAccountLogin(params){
 export async function getFakeCaptcha(mobile) {
   return request(`/api/v1/captcha?mobile=${mobile}`);
 }
+
+export async function getImageList(params) {
+  return request(`/bd/search/acjson?${params}`);
+}

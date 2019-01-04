@@ -14,5 +14,12 @@ export default {
       target: 'http://127.0.0.1:7001',
       changeOrigin: true,
     },
+    '/bd': {
+      target: 'https://image.baidu.com',
+      changeOrigin: true,
+      "pathRewrite":{
+        '^/bd': ''
+      },
+    },
   },
 };

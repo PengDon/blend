@@ -28,6 +28,10 @@ export default [
         ]
       },
       {
+        path: '/image',
+        component: './ImageList'
+      },
+      {
         path: '/dashboard',
         routes: [
           { path: '/dashboard/analysis', component: './Dashboard/Analysis' },
