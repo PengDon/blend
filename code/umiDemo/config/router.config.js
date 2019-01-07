@@ -32,6 +32,10 @@ export default [
         component: './ImageList'
       },
       {
+        path: '/position',
+        component: './Position'
+      },
+      {
         path: '/dashboard',
         routes: [
           { path: '/dashboard/analysis', component: './Dashboard/Analysis' },

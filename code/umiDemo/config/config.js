@@ -5,7 +5,18 @@ export default {
   plugins: [
     ['umi-plugin-react', {
       antd: true,
-      dva:true, 
+      dva:{
+        hmr: true,
+      },
+      dynamicImport: {
+        loadingComponent: './component/PageLoading/index',
+      },
+      pwa: {
+        workboxPluginMode: 'InjectManifest',
+        workboxOptions: {
+          importWorkboxFrom: 'local',
+        },
+      },
     }],
   ],
   routes: pageRoutes,
