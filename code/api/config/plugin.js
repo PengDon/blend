@@ -20,3 +20,12 @@ exports.ejs = {
   package: 'egg-view-ejs',
 };
 
+module.exports.passport = {
+  enable: true,
+  package: 'egg-passport',
+};
+
+module.exports.passportGithub = {
+  enable: true,
+  package: 'egg-passport-github',
+};

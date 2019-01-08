@@ -11,4 +11,10 @@ module.exports = app => {
   app.router.post('/api/v1/addUser', app.controller.user.addUser);
   // 根据userId删除对应用户信息
   app.router.get('/api/v1/delUser/:userId', app.controller.user.delUser);
+
+  // github授权登录
+  app.passport.mount('github');
+  app.router.get('/api/v1/login/github',app.controller.user.loginByGithub);
+  app.router.get('/api/v1/logout',app.controller.user.logout);
+
 };

@@ -29,10 +29,18 @@ class UserService extends Service {
       .then(res => {
         console.log('------res--------',res);
         if (res[0].name === param.name && res[0].password === param.password) {
-          return { success: true, msg:"登录成功", data: res[0]};
-        }
+          return this._updataUserStatus(res[0].userId,true).then(data=>{
+                   console.log("_updataUserStatus-----------:",data);
+                   if(data.nModified || data.ok==1){
+                     return { success: true, msg:"登录成功", data: res[0]};
+                   }
+                 },data=>{
+                   console.log(data);
+                   return { success: false, msg:"", err: data };
+                 })
+         }
 
-        return { success: false, msg:"用户名或密码错误", err: err };
+         return { success: false, msg:"用户名或密码错误", err: err };
       })
       .catch(err => {
         return { success: false, msg:"", err: err };
@@ -103,6 +111,25 @@ class UserService extends Service {
     .catch(err=>{
       return { success: false, err: err };
     });
+  }
+
+  async loginByGithub(){
+    const ctx = this.ctx;
+    console.log("ctx.user:",ctx.user);
+    console.log("ctx.isAuthenticated():",ctx.isAuthenticated());
+    if (ctx.isAuthenticated()) {
+console.log("github授权登录成功")
+      return { success: true, msg:"github授权登录成功", data: ctx.user};
+    }else{
+      return '<a href="/passport/github">Github</a>';
+      // return { success: false, msg:"github授权登录失败", data: null};
+    }
+  }
+
+  async logout(){
+    const ctx = this.ctx;
+    ctx.logout();
+    return { success: true, msg:"退出登录成功", data: 1};
   }
 }
 

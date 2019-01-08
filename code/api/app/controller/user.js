@@ -47,6 +47,18 @@ class UserController extends Controller {
     let res = await ctx.service.user.delUser(ctx.params.userId);
     ctx.body = res;
   }
+
+  async loginByGithub(){
+    const {ctx} = this;
+    let res = await ctx.service.user.loginByGithub();
+    ctx.body = res;
+  } 
+
+  async logout(){
+    const {ctx} = this;
+    let res = await ctx.service.user.logout();
+    ctx.body = res;
+  }
 }
 
 module.exports = UserController;

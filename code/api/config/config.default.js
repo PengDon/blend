@@ -24,5 +24,11 @@ module.exports = appInfo => {
     mapping: {'.html': 'ejs'} // 左边写成.html后缀，会自动渲染.html文件
   };
 
+  config.passportGithub = {
+    key: '9f101ea54988a093c701',
+    secret: 'fd7e1030e822279e5d94837aa33396de7a4f9653',
+    callbackURL: '/passport/github/callback',
+    // proxy: false,
+  };
   return config;
 };
