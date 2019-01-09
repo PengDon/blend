@@ -4,6 +4,10 @@ const utils = require("../extend/tool");
 class UserService extends Service {
   // 查询用户列表
   async queryUserList() {
+    if(!this._isLogin()){
+      return  { success: false, msg: "还没登陆", data:null};
+    }
+
     return this.ctx.model.User.find({}, { password: 0 })
       .then(res => {
         return { success: true, msg: "", code: 0, data: res };
@@ -74,8 +78,10 @@ class UserService extends Service {
   
   // 添加用户信息
   async addUser(user){
-    let obj = {
-      userId:utils.UUId(),
+    let userId = utils.UUId(),
+        _this = this,
+        obj = {
+      userId:userId,
       status:false,
       createTime:utils.FormatDate("YYYY-MM-DD HH:mm"),
       loginTime:''
@@ -87,7 +93,7 @@ class UserService extends Service {
     .then(res=>{
       console.log('------res--------',res);
       if(res){
-        return { success: true, msg: "用户添加成功", code: 0};
+        return { success: true, msg: "用户添加成功", code: 0, data:user};
       }else{
         return { success: true, msg: "用户添加失败", code: 0};
       }
@@ -115,11 +121,27 @@ class UserService extends Service {
 
   async loginByGithub(){
     const ctx = this.ctx;
-    console.log("ctx.user:",ctx.user);
-    console.log("ctx.isAuthenticated():",ctx.isAuthenticated());
     if (ctx.isAuthenticated()) {
-console.log("github授权登录成功")
-      return { success: true, msg:"github授权登录成功", data: ctx.user};
+      console.log("github授权成功")
+      const loginRes = await this.queryUserByName({
+        name: ctx.user.name
+      });
+      console.log("github授权回调数据:\n",ctx.user);
+      //数据库里有值直接返回
+      if(loginRes.success && loginRes.data.length>0){
+        return { success: true, msg:"github授权登录成功", data: loginRes.data[0]};
+      }else{ // 先注册（添加数据到数据库在返回值）
+        let passportObj = ctx.user,
+            pars ={
+              name:passportObj.name,
+              passportObj:JSON.stringify(passportObj),
+              passportType:"github"
+            }; 
+        const addUserRes = await this.addUser(pars);
+        console.log("addUser-------res:\n",addUserRes);
+        return { success: true, msg:"github授权登录成功", data: addUserRes.data};
+      }
+
     }else{
       return '<a href="/passport/github">Github</a>';
       // return { success: false, msg:"github授权登录失败", data: null};
@@ -130,6 +152,11 @@ console.log("github授权登录成功")
     const ctx = this.ctx;
     ctx.logout();
     return { success: true, msg:"退出登录成功", data: 1};
+  }
+
+  _isLogin(){
+    const ctx = this.ctx;
+    return ctx.isAuthenticated();
   }
 }
 
