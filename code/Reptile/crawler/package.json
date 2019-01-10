@@ -1,0 +1,21 @@
+{
+  "name": "crawler",
+  "version": "1.0.0",
+  "description": "crawler demo",
+  "main": "index.js",
+  "scripts": {
+    "test": "no"
+  },
+  "repository": {
+    "type": "git",
+    "url": "no"
+  },
+  "keywords": [
+    "crawler"
+  ],
+  "author": "don",
+  "license": "ISC",
+  "dependencies": {
+    "crawler": "^1.2.0"
+  }
+}

@@ -16,6 +16,13 @@ cnpm i -S request cheerio mysql async
 # 入口文件app.js，执行以下命令会把数据存入数据库
 node app.js
 ```
+## crawler 目录， node 爬虫框架
+```
+# 初始化配置
+npm init
+# 安装依赖
+cnpm i -S crawler
+# 入口文件index.js，执行以下命令会把数据存入数据库
+node index.js
 
-
-## node 爬虫框架
+```
