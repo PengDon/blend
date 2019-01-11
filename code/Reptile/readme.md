@@ -20,8 +20,19 @@ node app.js
 ```
 # 初始化配置
 npm init
-# 安装依赖
+# 安装依赖 [crawler](https://www.npmjs.com/package/crawler)
 cnpm i -S crawler
+# 入口文件index.js，执行以下命令会把数据存入数据库
+node index.js
+
+```
+
+## region 目录， 爬取国家统计局 2016年 统计用区划代码和城乡划分代码
+```
+# 初始化配置
+npm init
+# 安装依赖
+cnpm i -S crawler lodash temme
 # 入口文件index.js，执行以下命令会把数据存入数据库
 node index.js
 
