@@ -33,7 +33,7 @@ node index.js
 npm init
 # 安装依赖
 cnpm i -S crawler lodash temme
-# 入口文件index.js，执行以下命令会把数据存入数据库
-node index.js
+# 入口文件app.js，执行以下命令会把数据存入数据库
+node app.js
 
 ```
