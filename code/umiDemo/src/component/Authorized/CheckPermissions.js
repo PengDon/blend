@@ -2,6 +2,8 @@ import React from 'react';
 import PromiseRender from './PromiseRender';
 import { CURRENT } from './renderAuthorize';
 
+console.log('检查进行中-------------------------');
+
 function isPromise(obj) {
   return (
     !!obj &&

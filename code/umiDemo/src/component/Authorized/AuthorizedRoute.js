@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import Authorized from './Authorized';
 
+console.log('检查后自动跳转-------------------------');
+
 // TODO: umi只会返回render和rest
 const AuthorizedRoute = ({ component: Component, render, authority, redirectPath, ...rest }) => (
   <Authorized

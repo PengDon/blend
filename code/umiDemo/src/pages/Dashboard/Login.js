@@ -5,7 +5,6 @@ import {
   } from 'antd';
 import styles from './Login.less';
 
-console.log('进入登录页面-------------------------');
 @connect(({ login, loading }) => ({
   login,
   submitting: loading.effects['login/login'],

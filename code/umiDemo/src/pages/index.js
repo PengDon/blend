@@ -9,5 +9,6 @@ export default () =>
       <li><Link to="/account/center">账户管理</Link></li>
       <li><Link to="/image">图片列表</Link></li>
       <li><Link to="/position">当前位置</Link></li>
+      <li><Link to="/dashboard/login">登录</Link></li>
     </ul>
   </>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Spin } from 'antd';
 
+console.log('权限确认中-------------------------');
+
 export default class PromiseRender extends React.PureComponent {
   state = {
     component: null,

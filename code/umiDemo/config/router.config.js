@@ -4,8 +4,8 @@ export default [
     path: '/user',
     component: '../layout/UserLayout',
     routes: [
-      { path: '/user', redirect: './User/Login' },
-      { path: '/user/login', component: './User/Login' },
+      { path: '/user', redirect: './user/login' },
+      { path: '/user/login', name: 'login', component: './User/Login' },
     ],
   },
   // app
@@ -38,6 +38,7 @@ export default [
       {
         path: '/dashboard',
         routes: [
+          { path: '/dashboard/login', component: './Dashboard/Login' },
           { path: '/dashboard/analysis', component: './Dashboard/Analysis' },
           { path: '/dashboard/monitor', component: './Dashboard/Monitor' },
           { path: '/dashboard/workplace', component: './Dashboard/Workplace' }

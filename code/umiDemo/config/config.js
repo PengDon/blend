@@ -10,6 +10,8 @@ export default {
       },
       dynamicImport: {
         loadingComponent: './component/PageLoading/index',
+        webpackChunkName: true,
+        level: 3,
       },
       pwa: {
         workboxPluginMode: 'InjectManifest',

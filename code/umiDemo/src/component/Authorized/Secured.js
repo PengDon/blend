@@ -1,6 +1,9 @@
 import React from 'react';
 import Exception from '../Exception';
 import CheckPermissions from './CheckPermissions';
+
+console.log('异常场景处理-------------------------');
+
 /**
  * 默认不能访问任何页面
  * default is "NULL"
