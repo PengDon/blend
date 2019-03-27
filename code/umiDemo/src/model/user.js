@@ -1,4 +1,4 @@
-import * as userService from '../service/user';
+import {userService} from '../service/user';
 import { routerRedux } from 'dva/router';
 import { getPageQuery } from '../util/utils';
 

@@ -1,4 +1,3 @@
-console.log('准备开始渲染-------------------------');
 
 /* eslint-disable import/no-mutable-exports */
 let CURRENT = 'NULL';

@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
-import {
-    Form, Icon, Input, Button, Checkbox,
-  } from 'antd';
+import {Form, Icon, Input, Button, Checkbox} from 'antd';
 import styles from './Login.less';
 
-console.log('进入登录页面-------------------------');
 @connect(({ login, loading }) => ({
   login,
   submitting: loading.effects['login/login'],
