@@ -12,10 +12,6 @@ create table users(
 	primary key (`userId`)
 );
 
--- 给users表添加外键roleId
--- alter table 需加外键的表 add constraint 外键名(不能重复) foreign key(需加外键表的字段名) referencnes 关联表名(关联字段名);
-alter table users add constraint fk_users_roles foreign key (roleId) references roles (roleId);
-
 -- 插入测试数据到users表
 insert into users(name,roleId) values ('张三',3);
 insert into users(name,roleId) values ('李四',3);
@@ -36,6 +32,10 @@ create table roles(
 insert into roles(roleName,roleType) values ('超级管理员',0);
 insert into roles(roleName,roleType) values ('VIP用户',1);
 insert into roles(roleName,roleType) values ('普通用户',2);
+
+-- 给users表添加外键roleId
+-- alter table 需加外键的表 add constraint 外键名(不能重复) foreign key(需加外键表的字段名) referencnes 关联表名(关联字段名);
+alter table users add constraint fk_users_roles foreign key (roleId) references roles (roleId);
 
 -- 查询users表用户角色类型
 select u.*,r.roleType from users u,roles r where u.roleId = r.roleId 
