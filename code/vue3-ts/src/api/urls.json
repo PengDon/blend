@@ -1,0 +1,8 @@
+{
+  "queryUsers": {
+    "url": "/api/v1/users",
+    "method": "get",
+    "descript": "查询所有用户信息"
+  }
+
+}
