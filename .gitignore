@@ -1,2 +1,5 @@
 /.vscode
-/code/react/node_modules
+/code/api/node_modules
+/code/api/run
+/code/api/log
+/code/vue3-ts/node_modules

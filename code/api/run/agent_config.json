@@ -75,7 +75,7 @@
     "onerror": {
       "errorPageUrl": "",
       "appErrorFilter": null,
-      "templatePath": "F:\\self\\end-node\\egg-example\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
+      "templatePath": "F:\\self\\blend\\code\\api\\node_modules\\egg-onerror\\lib\\onerror_page.mustache"
     },
     "i18n": {
       "defaultLocale": "en_US",
@@ -88,8 +88,8 @@
     "watcher": {
       "type": "development",
       "eventSources": {
-        "default": "F:\\self\\end-node\\egg-example\\node_modules\\egg-watcher\\lib\\event-sources\\default",
-        "development": "F:\\self\\end-node\\egg-example\\node_modules\\egg-watcher\\lib\\event-sources\\development"
+        "default": "F:\\self\\blend\\code\\api\\node_modules\\egg-watcher\\lib\\event-sources\\default",
+        "development": "F:\\self\\blend\\code\\api\\node_modules\\egg-watcher\\lib\\event-sources\\development"
       }
     },
     "customLogger": {
@@ -135,14 +135,14 @@
     },
     "static": {
       "prefix": "/public/",
-      "dir": "F:\\self\\end-node\\egg-example\\app\\public",
+      "dir": "F:\\self\\blend\\code\\api\\app\\public",
       "dynamic": true,
       "preload": false,
       "buffer": false,
       "maxFiles": 1000
     },
     "view": {
-      "root": "F:\\self\\end-node\\egg-example\\app\\view",
+      "root": "F:\\self\\blend\\code\\api\\app\\view",
       "cache": false,
       "defaultExtension": ".html",
       "defaultViewEngine": "",
@@ -192,9 +192,9 @@
         "egg-bin": "^4.14.0"
       }
     },
-    "baseDir": "F:\\self\\end-node\\egg-example",
+    "baseDir": "F:\\self\\blend\\code\\api",
     "HOME": "C:\\Users\\Administrator",
-    "rundir": "F:\\self\\end-node\\egg-example\\run",
+    "rundir": "F:\\self\\blend\\code\\api\\run",
     "dump": {
       "ignore": "<Set>"
     },
@@ -226,7 +226,7 @@
       "onerror": "<Function onerror>"
     },
     "logger": {
-      "dir": "F:\\self\\end-node\\egg-example\\logs\\egg-example",
+      "dir": "F:\\self\\blend\\code\\api\\logs\\egg-example",
       "encoding": "utf8",
       "env": "local",
       "level": "INFO",
@@ -302,8 +302,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-session",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-session",
       "version": "3.1.0"
     },
     "security": {
@@ -315,8 +315,8 @@
         "session"
       ],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-security",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-security",
       "version": "2.7.1"
     },
     "jsonp": {
@@ -328,8 +328,8 @@
         "security"
       ],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-jsonp",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-jsonp",
       "version": "2.0.0"
     },
     "onerror": {
@@ -341,8 +341,8 @@
         "jsonp"
       ],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-onerror",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-onerror",
       "version": "2.1.0"
     },
     "i18n": {
@@ -352,8 +352,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-i18n",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-i18n",
       "version": "2.1.1"
     },
     "watcher": {
@@ -363,8 +363,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-watcher",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-watcher",
       "version": "3.1.0"
     },
     "schedule": {
@@ -374,8 +374,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-schedule",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-schedule",
       "version": "3.6.4"
     },
     "multipart": {
@@ -387,8 +387,8 @@
         "schedule"
       ],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-multipart",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-multipart",
       "version": "2.10.1"
     },
     "development": {
@@ -402,8 +402,8 @@
       "env": [
         "local"
       ],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-development",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-development",
       "version": "2.4.3"
     },
     "logrotator": {
@@ -415,8 +415,8 @@
       ],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-logrotator",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-logrotator",
       "version": "3.1.0"
     },
     "static": {
@@ -426,8 +426,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-static",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-static",
       "version": "2.2.0"
     },
     "view": {
@@ -437,8 +437,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\node_modules\\egg\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-view",
+      "from": "F:\\self\\blend\\code\\api\\node_modules\\egg\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-view",
       "version": "2.1.2"
     },
     "mysql": {
@@ -448,8 +448,8 @@
       "dependencies": [],
       "optionalDependencies": [],
       "env": [],
-      "from": "F:\\self\\end-node\\egg-example\\config\\plugin.js",
-      "path": "F:\\self\\end-node\\egg-example\\node_modules\\egg-mysql",
+      "from": "F:\\self\\blend\\code\\api\\config\\plugin.js",
+      "path": "F:\\self\\blend\\code\\api\\node_modules\\egg-mysql",
       "version": "3.0.0"
     }
   }
