@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <h1>{{viewStore.title}}</h1>
-    <img alt="Vue logo" src="@/assets/images/tkn_icon.png">
     
     <button v-on:click="changeTitle">切换标题</button>
   </div>

@@ -1,5 +1,5 @@
-export const base: string = 'zzs-web';
-export const appName: string = 'zzs-web';
+export const base: string = 'self-name';
+export const appName: string = 'self-name';
 export const authToken: string = 'token';
 export const reqSource: string = 'reqSource';
 export const toBack:string = 'back';

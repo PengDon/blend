@@ -18,9 +18,7 @@ class UserService extends Service {
     const date = new Date();
     const result = await this.app.mysql.insert("users", {
       name: params.name,
-      password: params.pwd,
-      createDate: params.createDate,
-      status: params.status
+      roleId: params.roleId,
     });
     return { result };
   }
@@ -41,7 +39,7 @@ class UserService extends Service {
     };
     const row = {
       name: params.name,
-      password: params.pwd,
+      password: params.password,
       status: params.status
     };
     const result = await this.app.mysql.update("users", row, options);

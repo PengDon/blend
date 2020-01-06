@@ -62,7 +62,7 @@ module.exports = {
         template: "./public/index.html",
         title: "zzs-web",
         hash: true,
-        favicon: "./src/assets/images/tkn_icon.png",
+        favicon: "./public/favicon.ico",
         href: path.join("/", pjson.name, "/"),
         minify: {
           removeAttributeQuotes: false, // 去除双引号(实际开发改为true)

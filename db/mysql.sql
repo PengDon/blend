@@ -16,6 +16,7 @@ create table users(
 insert into users(name,roleId) values ('张三',3);
 insert into users(name,roleId) values ('李四',3);
 insert into users(name,roleId) values ('王五',3);
+insert into users(name,roleId) values ('佳明',3);
 
 
 -- 如果存在roles表则删除
