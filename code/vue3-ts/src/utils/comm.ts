@@ -1,10 +1,9 @@
-/**
- * @author: don 
- * @date: 2019-10-15 10:58:32 
- * @last Modified by:   don 
- * @last Modified time: 2019-10-15 10:58:32 
- * @describe: 
- * 
+/*
+ * @Author: don 
+ * @Date: 2020-01-06 14:03:01 
+ * @Last Modified by: don
+ * @Last Modified time: 2020-01-06 14:04:09
+ * @Desc: 公用JS封装
  */
 
  /**
@@ -34,7 +33,7 @@ export const appendPars = (url: string, pars: any) =>{
 
 
 /**
- *
+ * 根据name获取url参数对应的value值
  *
  * @param {*} name
  * @returns

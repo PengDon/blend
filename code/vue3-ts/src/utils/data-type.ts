@@ -1,3 +1,11 @@
+/*
+ * @Author: don 
+ * @Date: 2020-01-06 14:04:23 
+ * @Last Modified by:   don 
+ * @Last Modified time: 2020-01-06 14:04:23 
+ * @Desc: 常用校验封装 
+ */
+
 const toString = Object.prototype.toString;
 /**
  * Strict object type check. Only returns true
