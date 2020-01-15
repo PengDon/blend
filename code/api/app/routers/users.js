@@ -3,6 +3,6 @@ module.exports = app => {
   router.get("/users", controller.users.findAll);
   router.get("/users/:id", controller.users.findOne);
   router.post("/users", controller.users.add);
-  router.put("/users", controller.users.update);
+  router.put("/users/:id", controller.users.update);
   router.del("/users/:id", controller.users.delete);
 };

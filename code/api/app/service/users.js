@@ -18,7 +18,7 @@ class UserService extends Service {
     const date = new Date();
     const result = await this.app.mysql.insert("users", {
       name: params.name,
-      roleId: params.roleId,
+      roleId: params.roleId
     });
     return { result };
   }
@@ -30,7 +30,7 @@ class UserService extends Service {
     return { result };
   }
 
-  async updated(params) {
+  async update(params) {
     // 如果主键是自定义的 ID 名称，如 userId，则需要在 `where` 里面配置
     const options = {
       where: {
