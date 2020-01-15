@@ -25,7 +25,7 @@ class UserController extends Controller {
     const { ctx } = this;
     const id = ctx.params.id;
     const result = await ctx.service.users.delete(id);
-    ctx.boyd = result;
+    ctx.body = result;
   }
 
   async update() {
@@ -33,6 +33,7 @@ class UserController extends Controller {
     const id = ctx.params.id;
     const params = ctx.request.body;
     const result = await ctx.service.users.update(id, params);
+    ctx.body = result;
   }
 }
 

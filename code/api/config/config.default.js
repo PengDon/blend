@@ -4,8 +4,11 @@ module.exports = appInfo => {
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + "_1545363397110_3339";
 
+  // Middleware Floor API version
+  config.version = 'v1';
+
   // add your config here
-  config.middleware = ["auth"];
+  config.middleware = ["auth",'notfoundHandler'];
   // auth中间件的配置方法一
   // 中间件匹配路由
   config.auth = {
