@@ -30,8 +30,9 @@ class UserController extends Controller {
 
   async update() {
     const { ctx } = this;
+    const id = ctx.params.id;
     const params = ctx.request.body;
-    const result = await ctx.service.users.update(params);
+    const result = await ctx.service.users.update(id, params);
   }
 }
 

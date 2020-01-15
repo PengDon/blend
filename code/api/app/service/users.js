@@ -30,11 +30,11 @@ class UserService extends Service {
     return { result };
   }
 
-  async update(params) {
+  async update(id, params) {
     // 如果主键是自定义的 ID 名称，如 userId，则需要在 `where` 里面配置
     const options = {
       where: {
-        userId: params.id
+        userId: id
       }
     };
     const row = {
