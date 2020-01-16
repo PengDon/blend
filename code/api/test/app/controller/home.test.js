@@ -4,7 +4,7 @@ const { app, mock, assert } = require("egg-mock/bootstrap");
 
 describe("test/app/controller/home.test.js", () => {
   describe("index()", () => {
-    it("GET /api/v1/home should status 200", () => {
+    it("should get /api/v1/home 200", () => {
       // 对 app 发起 `GET /` 请求
       return app
         .httpRequest()
