@@ -1,7 +1,7 @@
 const Service = require("egg").Service;
 
 class LoginService extends Service {
-   async login(params){
+   async signIn(params){
       let res = await this.app.mysql.get("users",{
           name:params.name,
           password:params.password
@@ -9,9 +9,9 @@ class LoginService extends Service {
       return res;
    }
 
-   async loginOut(){
-
-   }
+  // // 登出
+  // async signOut(){
+  // }
 }
 
 module.exports = LoginService;
