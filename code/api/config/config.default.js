@@ -8,7 +8,7 @@ module.exports = appInfo => {
   config.version = 'v1';
 
   // add your config here
-  config.middleware = ["auth",'notfoundHandler'];
+  config.middleware = ["auth",'notfoundHandler']; // 数组的顺序为中间件执行的顺序
   // auth中间件的配置方法一
   // 中间件匹配路由
   config.auth = {
