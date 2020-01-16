@@ -2,24 +2,62 @@
 const { app, mock, assert } = require("egg-mock/bootstrap");
 
 describe("test/app/service/users.test.js", () => {
-  let ctx;
-  before(async function() {
-    await app.ready();
-    ctx = app.mockContext();
-  });
-
-  describe("findOne()", () => {
-    it("should findOne exists user and userId is 1 and name equal 张三", async () => {
-      // 通过 ctx 访问到 service.users
-      const user = await ctx.service.users.findOne({ userId: 1 });
-      assert(user);
-      // assert(user.name === "张三");
+    describe("findAll()", () => {
+        // 获取所有用户信息
+        it("should get exists users", async () => {
+            const ctx = app.mockContext();
+            const res = await ctx.service.users.findAll();
+            assert(res);
+        });
     });
-  });
 
-  // it("should findOne null when user not exists", async () => {
-  //   const ctx = app.mockContext();
-  //   const user = await ctx.service.users.findOne(6);
-  //   assert(!user);
-  // });
+    describe("findOne(id)", () => {
+        // 根据存在的id查询用户信息
+        it("should get exists user By id", async () => {
+            const ctx = app.mockContext();
+            const res = await ctx.service.users.findOne(1);
+            assert(res);
+        });
+        // 用不存在的用户id查询
+        it("should get null when user not exists", async () => {
+            const ctx = app.mockContext();
+            const res = await ctx.service.users.findOne(600);
+            assert(!res);
+        });
+    });
+
+    describe("add(params)", () => {
+        // 添加一个用户信息
+        it("should add users", async () => {
+            const ctx = app.mockContext();
+            const res = await ctx.service.users.add({
+                name: new Date().toISOString().substr(10),
+                roleId: 3
+            });
+            assert(res);
+        });
+    });
+
+    describe("delete(id)", () => {
+        // 删除一个指定id的用户信息
+        it("should delete users", async () => {
+            const ctx = app.mockContext();
+            const res = await ctx.service.users.delete(46);
+            assert(res);
+        });
+    });
+
+    describe("update(id, params)", () => {
+        // 修改一个指定id的用户信息
+        it("should update users", async () => {
+            const ctx = app.mockContext();
+            const res = await ctx.service.users.update(45, {
+                name: "鹤旋",
+                password: "222222",
+                status: "1"
+            });
+            assert(res);
+        });
+    });
+
 });

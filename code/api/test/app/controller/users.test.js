@@ -14,7 +14,6 @@ describe("test/app/controller/users.test.js", () => {
         assert(res);
         assert(res.text);
         assert(JSON.parse(res.text));
-        assert(JSON.parse(res.text).user.length === 4);
       });
   });
 
@@ -32,7 +31,7 @@ describe("test/app/controller/users.test.js", () => {
       .httpRequest()
       .post("/api/v1/users")
       .send({
-        name: "smith",
+        name: new Date().toISOString().substr(10),
         roleId: 3
       })
       .expect(200); // 期望返回 status 200

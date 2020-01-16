@@ -3,31 +3,30 @@ const Service = require("egg").Service;
 class UserService extends Service {
   async findAll() {
     // const user = await this.app.mysql.select("users");
-    const user = await this.app.mysql.query(
+    const res = await this.app.mysql.query(
       `select *,r.roleName from users u,roles r where u.roleId = r.roleId`
     );
-    return { user };
+    return res;
   }
 
   async findOne(id) {
-    const user = await this.app.mysql.get("users", { userId: id });
-    return { user };
+    const res = await this.app.mysql.get("users", { userId: id });
+    return res;
   }
 
   async add(params) {
-    const date = new Date();
-    const result = await this.app.mysql.insert("users", {
+    const res = await this.app.mysql.insert("users", {
       name: params.name,
       roleId: params.roleId
     });
-    return { result };
+    return res;
   }
 
   async delete(id) {
-    const result = await this.app.mysql.delete("users", {
+    const res = await this.app.mysql.delete("users", {
       userId: id
     });
-    return { result };
+    return res;
   }
 
   async update(id, params) {
@@ -42,9 +41,9 @@ class UserService extends Service {
       password: params.password,
       status: params.status
     };
-    const result = await this.app.mysql.update("users", row, options);
+    const res = await this.app.mysql.update("users", row, options);
     // const result = await this.app.mysql.update("users", row);
-    return { result };
+    return res;
   }
 }
 
