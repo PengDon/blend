@@ -45,6 +45,12 @@ class UserService extends Service {
     // const result = await this.app.mysql.update("users", row);
     return res;
   }
+
+  // // 检查用户名是否已存在
+  // async checkName(name){
+  //    const res = await this.app.mysql.get("users", { name: name });
+  //    return res;
+  // }
 }
 
 module.exports = UserService;
