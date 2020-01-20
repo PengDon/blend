@@ -8,7 +8,8 @@ module.exports = appInfo => {
   config.version = 'v1';
 
   // add your config here
-  config.middleware = ["auth",'notfoundHandler']; // 数组的顺序为中间件执行的顺序
+  config.middleware = ["auth", 'notfoundHandler', 'errorHandler']; // 数组的顺序为中间件执行的顺序
+
   // auth中间件的配置方法一
   // 中间件匹配路由
   config.auth = {
@@ -16,6 +17,9 @@ module.exports = appInfo => {
     match: ["/login"] // 只匹配指定路由，反之如果只忽略指定路由，可以用ignore
     //   ignore:['/login'] // 不要与match一起使用，避免冲突
   };
+
+  // 只对 /api 前缀的 url 路径生效
+  config.errorHandler = { match: '/api' }
 
   config.security = {
     csrf: {
