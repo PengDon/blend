@@ -1,0 +1,184 @@
+// Prefix
+@css-prefix: xx;
+
+// global
+@base-zindex: 1;
+@body-bg: #F5F5F5;
+@body-padding-vertical: 24px;
+@body-padding-bottom: 5px;
+@line-color: #ececec;
+@line-high-color: #e4e4e4;
+@max-width: 750px;
+@min-width: 300px;
+
+// button
+@btn-radius: 2px;
+@btn-fontsize: 24px;
+@btn-height: 6px;
+@btn-default-color: #FFF;
+@btn-block-radius: 3px;
+@btn-block-fontsize: 3px;
+@btn-block-height: 9px;
+@btn-block-margin-top: 5px;
+@btn-primary-bg: #04BE02;
+@btn-danger-bg: #EF4F4F;
+@btn-warning-bg: #FFB400;
+@btn-disabled-bg: #CCC;
+@btn-disabled-color: #F0F0F0;
+@btn-hollow-bg: #FFF;
+@btn-hollow-color: #454545;
+@btn-hollow-border-color: #EAEAEA;
+
+// cell
+@cell-title-fontsize: 28px;
+@cell-title-color: #888;
+@cell-height: 100px;
+@cell-left-color: #555;
+@cell-left-fontsize: 28px;
+@cell-right-color: #525252;
+@cell-right-fontsize: 26px;
+@cell-input-color: #555;
+@cell-input-fontsize: 28px;
+@cell-icon-fontsize: 38px;
+@cell-select-color: #A9A9A9;
+@cell-select-fontsize: @cell-left-fontsize;
+@cell-arrow-color: #C9C9C9;
+@cell-arrow-fontsize: 28px;
+
+// grids
+@grids-fontsize: 28px;
+@grids-color: #333;
+@grids-bg: #FFF;
+@grids-padding-horizontal: 35px;
+@grids-line-color: @line-color;
+@grids-line-high-color: @line-high-color;
+
+// navbar
+@navbar-height: 9px;
+@navbar-center-width: 50%;
+@navbar-item-fontsize: 26px;
+@navbar-icon-fontsize: 3px;
+@navbar-border-color: @line-high-color;
+
+// tabbar
+@tabbar-bg: rgba(255, 255, 255, .96);
+@tabbar-border-color: @line-high-color;
+
+// actionsheet
+@actionsheet-bg: #EFEFF4;
+@actionsheet-item-height: 100px;
+@actionsheet-item-bg: #FFF;
+@actionsheet-item-fontsize: 28px;
+@actionsheet-item-color: #555;
+@actionsheet-item-border-color: @line-color;
+@actionsheet-action-height: 100px;
+@actionsheet-action-bg: @actionsheet-item-bg;
+@actionsheet-action-fontsize: @actionsheet-item-fontsize;
+@actionsheet-action-color: @actionsheet-item-color;
+
+// tab
+@tab-bg: #FFF;
+@tab-height: 85px;
+@tab-color: #585858;
+
+// badge
+@badge-default-bg: #D0D0D0;
+@badge-default-color: #FFF;
+@badge-primary-bg: #04BE02;
+@badge-danger-bg: #EF4F4F;
+@badge-warning-bg: #FFB400;
+@badge-hollow-bg: #FBFBFB;
+@badge-hollow-color: #B2B2B2;
+
+@widthList: 18, 50, 240;
+@heightList: 40, 48;
+
+@spacingList: 5, 10, 12, 15, 16, 20, 24, 40, 60;
+@directionShort: l, r, t, b;
+@direction: left, right, top, bottom;
+
+.generWidth(@i) when (@i < length(@widthList)+1) {
+  .widths(extract(@widthList, @i));
+  .generWidth(@i+1);
+}
+
+.generHeight(@i) when (@i < length(@heightList)+1) {
+  .heights(extract(@heightList, @i));
+  .generHeight(@i+1);
+}
+
+.widths(@size) {
+  .w-@{size} {
+    width: unit(@size, px);
+  }
+}
+
+.heights(@size) {
+  .h-@{size} {
+    height: unit(@size, px);
+  }
+}
+
+.generSpacingDirection(@j, @i) when (@j < length(@direction)+1) {
+  .spacing(extract(@directionShort, @j), extract(@direction, @j), extract(@spacingList, @i));
+  .generSpacingDirection(@j+1, @i);
+}
+
+.generSpacing(@i) when (@i < length(@spacingList)+1) {
+  .spacingUnit(extract(@spacingList, @i));
+  .generSpacingDirection(1, @i);
+  .generSpacing(@i+1);
+}
+
+.spacingUnit(@size) {
+  .p-@{size} {
+    padding: unit(@size, px);
+  }
+
+  .px-@{size} {
+    padding-left: unit(@size, px);
+    padding-right: unit(@size, px);
+  }
+
+  .py-@{size} {
+    padding-top: unit(@size, px);
+    padding-bottom: unit(@size, px);
+  }
+
+  .m-@{size} {
+    margin: unit(@size, px);
+  }
+
+  .mx-@{size} {
+    margin-left: unit(@size, px);
+    margin-right: unit(@size, px);
+  }
+
+  .my-@{size} {
+    margin-top: unit(@size, px);
+    margin-bottom: unit(@size, px);
+  }
+}
+
+.spacing(@directionShort, @direction, @size) {
+  .p@{directionShort}-@{size} {
+    padding-@{direction}: unit(@size, px);
+  }
+
+  .m@{directionShort}-@{size} {
+    margin-@{direction}: unit(@size, px);
+  }
+}
+
+:global {
+
+  html,
+  body,
+  #app {
+    height: 100%;
+  }
+
+  .generWidth(1);
+  .generHeight(1);
+  .generSpacing(1);
+}

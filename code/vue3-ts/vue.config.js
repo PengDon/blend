@@ -20,6 +20,12 @@ const resolve = dir => {
   return path.resolve(__dirname, dir);
 };
 
+const px2rem = require('postcss-px2rem')
+
+const postcss = px2rem({
+  remUnit: 75   // 基准大小 baseSize，需要和rem.js中相同，宽屏要除以10，75对应设计稿750
+})
+
 // 自定义webpack
 module.exports = {
   // 基本的路径  [参考](https://cli.vuejs.org/zh/config/#publicpath)
@@ -31,9 +37,13 @@ module.exports = {
     extract: true, // 分离插件
     sourceMap: false, // 开发人员定位问题
     loaderOptions: {
+      postcss: {
+        plugins: [postcss]
+      },
       // 配置引入全局的样式
       less: {
-        // data: `@import "@/assets/css/index.less";`
+        // @/ 是 src/ 的别名
+        data: `@import "@/assets/css/base.less";`
       }
     },
     modules: false

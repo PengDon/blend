@@ -1,21 +1,29 @@
 <template>
-  <div class="login">
-    
+  <div class="sign">
+    <div class="sign-area">
+      <div class="sign-item">
+        <span class="item-text">用户名：</span>
+        <span class="text-input"><input type="text" /></span>
+      </div>
+      <div class="sign-item">
+        <span class="item-text">密码：</span>
+        <span class="text-input"><input type="text" /></span>
+      </div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Provide } from 'vue-property-decorator';
-import { storage } from '@/utils';
-import { authToken, toBack } from '@/config';
+import { Component, Vue, Provide } from "vue-property-decorator";
+import { storage } from "@/utils";
+import { authToken, toBack } from "@/config";
 
 @Component({})
 export default class Login extends Vue {
-
   created() {
     this.auth();
   }
- 
+
   // 去微信授权
   private auth(): void {
     // // 构造授权认证URL地址+回调地址+请求参数数据
@@ -34,11 +42,22 @@ export default class Login extends Vue {
   }
 }
 </script>
-<style lang="less">
-.login {
+<style scoped lang="less">
+.sign {
   width: 100%;
-  height: 100%;
-  position: fixed;
-  overflow: hidden;
+  min-height: 750px;
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .sign-area {
+    background: rgba(2, 0, 0, 0.08);
+    border-radius: 16px;
+    box-shadow: 0 0 40px 10px #d8d8d8;
+    width: 260px;
+    height: 160px;
+    font-size: 20px;
+    padding: 20px 30px;
+  }
 }
 </style>

@@ -17,7 +17,6 @@ export default class LoginController extends Controller {
         const token = app.jwt.sign(
           {
             username: data.username // 需要存储的 token 数据
-            // ......
           },
           app.config.jwt.secret
         )
