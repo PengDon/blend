@@ -26,8 +26,22 @@ import { Component, Vue, Provide } from "vue-property-decorator";
 import { storage } from "@/utils";
 import { authToken, toBack } from "@/config";
 
-@Component({})
+@Component({
+  components: {}
+})
 export default class Login extends Vue {
+  created() {
+    console.log(
+      this.$dialog.notify({
+        mes: "5秒后自动消失，点我也可以消失！",
+        timeout: 5000,
+        callback: () => {
+          console.log("我走咯！");
+        }
+      })
+    );
+  }
+
   private params: any = {
     name: null,
     password: null
