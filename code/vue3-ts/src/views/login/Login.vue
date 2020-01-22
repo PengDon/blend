@@ -3,12 +3,20 @@
     <div class="sign-area">
       <div class="sign-item">
         <span class="item-text">用户名：</span>
-        <span class="text-input"><input type="text" /></span>
+        <span class="item-input"><input type="text"
+                 v-model="params.name"
+                 placeholder="请输入用户名"
+                 maxlength="10" /></span>
       </div>
       <div class="sign-item">
         <span class="item-text">密码：</span>
-        <span class="text-input"><input type="text" /></span>
+        <span class="item-input"><input type="password"
+                 v-model="params.password"
+                 placeholder="请输入密码"
+                 maxlength="12" /></span>
       </div>
+      <span class="login-btn"
+            v-on:click="check">登录</span>
     </div>
   </div>
 </template>
@@ -20,30 +28,35 @@ import { authToken, toBack } from "@/config";
 
 @Component({})
 export default class Login extends Vue {
-  created() {
-    this.auth();
+  private params: any = {
+    name: null,
+    password: null
+  };
+
+  private check(): void {
+    let bool = true;
+    if (!this.params.name) {
+      console.log("请输入用户名");
+      bool = false;
+    }
+    if (!this.params.password) {
+      console.log("请输入密码");
+      bool = false;
+    }
+
+    if (bool) {
+      this.login();
+    }
   }
 
-  // 去微信授权
-  private auth(): void {
-    // // 构造授权认证URL地址+回调地址+请求参数数据
-    // // 回调参数
-    // const callbackParams:string = (this.$route.query as any).backUrl;
-    //  // 如果发现有回调方法，则存储
-    // if(callbackParams){
-    //   storage.setItem(toBack,callbackParams);
-    // }
-    // // 回调地址
-    // const callbackURL = `${location.protocol}//${process.env.VUE_APP_domain}/#/transition`;
-    // // 授权地址
-    // const authURL = `https://open.weixin.qq.com/connect/oauth2/authorize?appid=${process.env.VUE_APP_appid}&redirect_uri=${encodeURIComponent(callbackURL)}&response_type=code&scope=snsapi_userinfo&v=${new Date().getTime()}#wechat_redirect`;
-    // // 跳到微信登录授权地址
-    // window.location.href = authURL;
+  private async login() {
+    console.log(this.params);
   }
 }
 </script>
 <style scoped lang="less">
 .sign {
+  background: #000000;
   width: 100%;
   min-height: 750px;
   display: flex;
@@ -51,13 +64,48 @@ export default class Login extends Vue {
   align-items: center;
   justify-content: center;
   .sign-area {
-    background: rgba(2, 0, 0, 0.08);
+    color: #ffffff;
+    background: rgba(8, 0, 0, 0.16);
     border-radius: 16px;
     box-shadow: 0 0 40px 10px #d8d8d8;
-    width: 260px;
-    height: 160px;
-    font-size: 20px;
-    padding: 20px 30px;
+    width: 320px;
+    height: 200px;
+    font-size: 18px;
+    padding: 20px;
+    .sign-item {
+      border-bottom: 1px solid #e4e4e4;
+      padding: 10px 0;
+      > span {
+        display: inline-block;
+      }
+      input {
+        border: 0; // 去除未选中状态边框
+        outline: none; // 去除选中状态边框
+        background-color: rgba(0, 0, 0, 0); // 透明背景
+        color: #ffffff;
+        &::placeholder {
+          color: #ffffff;
+        }
+      }
+      .item-text {
+        width: 35%;
+        text-align: right;
+      }
+      .item-input {
+        width: 65%;
+      }
+    }
+    .login-btn {
+      margin-top: 20px;
+      width: 100%;
+      height: 40px;
+      line-height: 40px;
+      text-align: center;
+      display: block;
+      color: #ffffff;
+      background: #2f2f2f;
+      border-radius: 16px;
+    }
   }
 }
 </style>

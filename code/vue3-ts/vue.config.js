@@ -20,34 +20,48 @@ const resolve = dir => {
   return path.resolve(__dirname, dir);
 };
 
-const px2rem = require('postcss-px2rem')
+// 写法一
+// const px2rem = require('postcss-px2rem')
+// const postcss = px2rem({
+//   remUnit: 100   // 基准大小 baseSize，需要和rem.js中相同，宽屏要除以10，remUnit: 100意思为1rem=100px
+// })
+// loaderOptions: {
+// postcss: {
+//   plugins: [postcss]
+// }
+// }
 
-const postcss = px2rem({
-  remUnit: 75   // 基准大小 baseSize，需要和rem.js中相同，宽屏要除以10，75对应设计稿750
-})
 
 // 自定义webpack
 module.exports = {
   // 基本的路径  [参考](https://cli.vuejs.org/zh/config/#publicpath)
   publicPath: "./",
+
   // 打包输出的路径
   outputDir: path.join(__dirname, "./weixin", pjson.name),
+
   /********************************css的配置 start********************************/
   css: {
     extract: true, // 分离插件
     sourceMap: false, // 开发人员定位问题
     loaderOptions: {
       postcss: {
-        plugins: [postcss]
+        // 写法二
+        plugins: [
+          require('postcss-px2rem')({
+            remUnit: 100 // 基准大小 baseSize，需要和rem.js中相同，宽屏要除以10，remUnit: 100意思为1rem=100px
+          })
+        ]
       },
-      // 配置引入全局的样式
-      less: {
-        // @/ 是 src/ 的别名
-        data: `@import "@/assets/css/base.less";`
-      }
+      // // 配置引入全局的样式
+      // less: {
+      //   // @/ 是 src/ 的别名
+      //   // data: `@import "@/assets/css/base.less";`
+      // }
     },
     modules: false
   },
+
   /********************************css的配置 end********************************/
 
   configureWebpack: config => {
@@ -98,6 +112,7 @@ module.exports = {
       );
     }
   },
+
   chainWebpack: config => {
     // 配置别名
     config.extensions = [".js", ".ts", ".vue"];
@@ -118,10 +133,13 @@ module.exports = {
       });
     }
   },
+
   // 生产环境是否生成soureceMap
   productionSourceMap: false,
+
   // 启动并发数
   parallel: require("os").cpus().length > 1,
+
   // 配置开发服务器
   devServer: {
     contentBase: path.join(__dirname, "dist"),
@@ -139,6 +157,14 @@ module.exports = {
         changeOrigin: true,
         ws: true
       }
+    }
+  },
+
+  pluginOptions: {
+    // 全局引入less样式
+    'style-resources-loader': {
+      preProcessor: 'less',
+      patterns: [path.resolve(__dirname, "src/assets/css/base.less")]
     }
   }
 };

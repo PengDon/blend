@@ -89,8 +89,15 @@ npm i @types/node -S
 npm i @types/qs -S
 ```
 
-### [postcss-px2rem]()
+### [postcss-px2rem](https://www.sogou.com/link?url=hedJjaC291M94sQej51f1MOnl7gebL35rOr7Ga-Xdn_EJTc8qaFczF5A7z5QkkP-)
 
 ```
-npm i postcss-px2rem -D
+npm i postcss-px2rem -S
+```
+
+### [style-resources-loader]()
+
+```
+# 解决vue3全局自动引入样式的问题
+vue add style-resources-loader
 ```
