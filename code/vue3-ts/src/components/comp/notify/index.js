@@ -3,10 +3,8 @@ import modal from './Notify.vue'
 let v = Vue.extend(modal)
 let vm = new v()
 let oDiv = null
-// message,delay=3000
+
 const Notify = (options) => {
-    // let v = Vue.extend(modal)
-    // let vm = new v()
     if(oDiv) return false
     oDiv = document.createElement('div')
     vm.$mount(oDiv)
