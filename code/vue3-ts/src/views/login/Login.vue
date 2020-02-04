@@ -31,15 +31,7 @@ import { authToken, toBack } from "@/config";
 })
 export default class Login extends Vue {
   created() {
-    console.log(
-      this.$dialog.notify({
-        mes: "5秒后自动消失，点我也可以消失！",
-        timeout: 5000,
-        callback: () => {
-          console.log("我走咯！");
-        }
-      })
-    );
+    console.log(this.$dialog.notify);
   }
 
   private params: any = {
@@ -48,6 +40,16 @@ export default class Login extends Vue {
   };
 
   private check(): void {
+
+      this.$dialog.notify({
+        mes: "5秒后自动消失，点我也可以消失！",
+        // timeout: 2000
+        // ,
+        // callback: () => {
+        //   console.log("我走咯！");
+        // }
+      })
+
     let bool = true;
     if (!this.params.name) {
       console.log("请输入用户名");

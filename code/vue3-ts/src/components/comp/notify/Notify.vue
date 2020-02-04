@@ -1,6 +1,5 @@
 <template>
   <div class="xx-notify"
-       :class="classes"
        v-html="msg">
   </div>
 </template>
@@ -11,8 +10,6 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 export default class Notify extends Vue {
   // 在typescript中这种写法的意思就是!前面的这个变量一定不是undefined或者null，!叫非空断言操作符。
   @Prop() private msg!: string | number;
-  @Prop() private timeout!: number;
-  @Prop() private callback!: Function;
 }
 </script>
 <style scoped lang="less">
