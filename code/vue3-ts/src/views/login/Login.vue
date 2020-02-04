@@ -42,12 +42,11 @@ export default class Login extends Vue {
   private check(): void {
 
       this.$dialog.notify({
-        mes: "5秒后自动消失，点我也可以消失！",
-        // timeout: 2000
-        // ,
-        // callback: () => {
-        //   console.log("我走咯！");
-        // }
+        mes: "2秒后自动消失，点我也可以消失！",
+        timeout: 2000,
+        callback: () => {
+          console.log("我走咯！");
+        }
       })
 
     let bool = true;

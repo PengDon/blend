@@ -15,6 +15,7 @@ const Notify = (options) => {
     setTimeout(() => {
       document.body.removeChild(vm.$el)
       oDiv = null;
+      options.callback && options.callback();
     }, options.timeout || 3000)
 }
 
