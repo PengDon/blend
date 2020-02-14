@@ -12,29 +12,3 @@ exports.cors =  {
   enable: true,
   package: 'egg-cors',
 };
-
-
-
-// module.exports = plugins => {
-//   const plugins = (exports = {});
-  
-//   plugins.mysql = {
-//     enable: true,
-//     package: 'egg-mysql',
-//   };
-
-//   plugins.jwt = {
-//     enable: true,
-//     package: 'egg-jwt',
-//   };
-
-//   plugins.cors =  {
-//     enable: true,
-//     package: 'egg-cors',
-//   }
-
-//   return {
-//     ...plugins
-//   }
-// };
-
