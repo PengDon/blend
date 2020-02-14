@@ -24,9 +24,9 @@ exports.formatTime = time => moment(time).format('YYYY-MM-DD HH:mm:ss')
  * @return: 
  * @example: ctx.helper.success(ctx,res,'描述') => {"code": 200,"data": res,"msg":"描述"}
  */
-exports.success = (ctx, data = null, msg = '请求成功')=> {
+exports.success = (ctx,code = 1, data = null, msg = '请求成功')=> {
   ctx.body = {
-    code: 1,
+    code: code,
     data,
     msg 
   }

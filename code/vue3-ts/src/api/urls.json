@@ -3,6 +3,11 @@
     "url": "/api/v1/users",
     "method": "get",
     "descript": "查询所有用户信息"
+  },
+  "loginUp":{
+    "url":"api/v1/login",
+    "method":"post",
+    "descript":"用户名密码登录"
   }
 
 }

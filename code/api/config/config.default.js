@@ -10,6 +10,11 @@ module.exports = appInfo => {
   // add your config here
   config.middleware = ["auth", 'notfoundHandler', 'errorHandler']; // 数组的顺序为中间件执行的顺序
 
+  // add your special config in here
+  const bizConfig = {
+    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+  };
+
   // auth中间件的配置方法一
   // 中间件匹配路由
   config.auth = {
@@ -21,10 +26,25 @@ module.exports = appInfo => {
   // 只对 /api 前缀的 url 路径生效
   config.errorHandler = { match: '/api' }
 
+  // token生成以及验证包
+  config.jwt = {
+    secret: '123456', // 自定义 token 的加密条件字符串
+  };
+
+  // 安全插件
   config.security = {
     csrf: {
-      enable: false
-    }
+      enable: false,
+      ignoreJSON: true,
+    },
+    domainWhiteList: [ 'http://localhost:8080' ], // 允许访问接口的白名单
+  };
+
+
+  // 跨域访问
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH',
   };
 
   config.mysql = {

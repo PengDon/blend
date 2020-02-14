@@ -25,11 +25,14 @@
 import { Component, Vue, Provide } from "vue-property-decorator";
 import { storage } from "@/utils";
 import { authToken, toBack } from "@/config";
+import { Action } from "vuex-class";
 
 @Component({
   components: {}
 })
 export default class Login extends Vue {
+  @Action('login/upLogin') private loginUp!: (postData:{name:string,password:string}) => Promise<any>
+
   created() {
     console.log(this.$dialog.notify);
   }
@@ -41,21 +44,27 @@ export default class Login extends Vue {
 
   private check(): void {
 
-      this.$dialog.notify({
-        mes: "2秒后自动消失，点我也可以消失！",
-        timeout: 2000,
-        callback: () => {
-          console.log("我走咯！");
-        }
-      })
+      // this.$dialog.notify({
+      //   mes: "2秒后自动消失，点我也可以消失！",
+      //   timeout: 2000,
+      //   callback: () => {
+      //     console.log("我走咯！");
+      //   }
+      // })
 
     let bool = true;
     if (!this.params.name) {
-      console.log("请输入用户名");
+      this.$dialog.notify({
+        mes: "请输入用户名!",
+        timeout: 2000
+      })
       bool = false;
     }
     if (!this.params.password) {
-      console.log("请输入密码");
+      this.$dialog.notify({
+        mes: "请输入密码!",
+        timeout: 2000
+      })
       bool = false;
     }
 
@@ -66,6 +75,20 @@ export default class Login extends Vue {
 
   private async login() {
     console.log(this.params);
+    let result = await this.loginUp(this.params);
+    // 成功场景
+    if(result&&result.code === 0){
+      // 存储用户当前登录token
+      storage.setItem(authToken,result.data.token);
+      // 跳转到首页，history栈中不会有记录
+      this.$router.replace('/')
+    }else{
+      // 失败场景
+      this.$dialog.notify({
+        mes:result.msg,
+        timeout:2000
+      })
+    }
   }
 }
 </script>
