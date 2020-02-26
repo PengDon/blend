@@ -84,7 +84,7 @@ module.exports = {
     let plugins = [
       new HtmlWebpackPlugin({
         template: "./public/index.html",
-        title: "zzs-web",
+        title: "don-web",
         hash: true,
         favicon: "./public/favicon.ico",
         href: path.join("/", pjson.name, "/"),
