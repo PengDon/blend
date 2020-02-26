@@ -7,8 +7,6 @@ export const auth = (
   from: any,
   next: (arg0: { name: string; query: { backUrl: any } }) => void
 ) => {
-  console.log(authToken)
-  console.log(storage.getItem(`${authToken}`))
   // 如果是要授权登录的且当前本地存储中不存在跳转到登录页面
   if (!to.meta.unauth && !storage.getItem(authToken)) {
     // Vue.prototype.$notify({
