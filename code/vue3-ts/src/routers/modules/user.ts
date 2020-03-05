@@ -1,10 +1,10 @@
 const routers = [
   {
-    name: "user",
-    path: "/users",
-    meta: { title: "User", unauth: true },
-    component: () => import("@/views/user")
+    name: 'user',
+    path: '/users',
+    meta: { title: 'User' },
+    component: () => import('@/views/user')
   }
-];
+]
 
-export default routers;
+export default routers

@@ -3,7 +3,7 @@
     <h1>{{viewStore.title}}</h1>
     <button v-on:click="changeTitle">切换标题</button>
     <ul>
-      <li><a href="#/users">用户列表</a></li>
+      <li><a href="#/users">查看用户列表</a></li>
     </ul>
   </div>
 </template>
@@ -27,7 +27,7 @@ export default class Home extends Vue {
   }
 
   private changeTitle() {
-    this.changeTitleAc("hello world");
+    this.changeTitleAc("主界面");
   }
 }
 </script>

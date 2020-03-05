@@ -8,6 +8,7 @@
         <span>{{ item.name }}</span>
         <span>{{ item.createDate | format }}</span>
         <span>{{ item.roleName }}</span>
+        <!-- <span><button>切换角色</button></span> -->
       </li>
     </ul>
   </div>
@@ -22,11 +23,11 @@ import axios from "axios";
 @Component({
   // // 第一种写法
   // filters: {
-  //   format: (value: number) => formatDate(value)
+  //   format: (value: string) => formatDate(value)
   // }
   // 第二种写法
   filters: {
-    format(value: number) {
+    format(value: string) {
       return formatDate(value);
     }
   }

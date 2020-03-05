@@ -3,6 +3,7 @@ const Controller = require("egg").Controller;
 class UserController extends Controller {
   async findAll () {
     const { ctx, service } = this;
+    console.log(ctx)
     // 调用 Service 进行业务处理
     const res = await service.users.findAll();
     // 设置响应内容和响应状态码

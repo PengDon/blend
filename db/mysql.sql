@@ -17,6 +17,8 @@ insert into users(name,roleId) values ('张三',3);
 insert into users(name,roleId) values ('李四',3);
 insert into users(name,roleId) values ('王五',3);
 insert into users(name,roleId) values ('佳明',3);
+insert into users(name,roleId) values('admin',1);
+insert into users(name,roleId) values('bolvs',2);
 
 
 -- 如果存在roles表则删除
@@ -39,7 +41,12 @@ insert into roles(roleName,roleType) values ('普通用户',2);
 alter table users add constraint fk_users_roles foreign key (roleId) references roles (roleId);
 
 -- 查询users表用户角色类型
-select u.*,r.roleType from users u,roles r where u.roleId = r.roleId 
+select u.*,r.roleType from users u,roles r where u.roleId = r.roleId; 
 -- 查询users表用户具体角色
-select u.*,r.roleName from users u,roles r where u.roleId = r.roleId 
+select u.*,r.roleName from users u,roles r where u.roleId = r.roleId;
+-- 查询用户表
+select * from users;
+-- 查询角色类型表
+select * from roles;
+
 

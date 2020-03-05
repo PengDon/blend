@@ -76,10 +76,9 @@ export default class Login extends Vue {
   }
 
   private async login() {
-    console.log(this.params);
     let result = await this.loginUp(this.params);
     // 成功场景
-    if (result && result.code === 0) {
+    if (result && result.code === 200) {
       // 存储用户当前登录token
       storage.setItem(authToken, result.data);
       // 跳转到首页，history栈中不会有记录
