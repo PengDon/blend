@@ -8,7 +8,6 @@ class LoginController extends Controller {
     const params = ctx.request.body;
     // 调用service方法
     const res = await service.login.signIn(params);
-    console.log(res)
     // 进行data数据验证，判断登录是否成功
     let msg = "登录成功!";
     let data = null;
@@ -23,6 +22,8 @@ class LoginController extends Controller {
         );
         // 返回 token 到前端
         data = token;
+        // 把用户信息存储到session中
+        ctx.session.userInfo = res;
         ctx.helper.success(ctx, data, msg);
       } else {
         msg = "密码错误！";

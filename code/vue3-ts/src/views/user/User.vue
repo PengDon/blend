@@ -1,16 +1,19 @@
 <template>
   <div class="user-main">
     <h1>{{ viewStore.title }}</h1>
-    <ul class="user-list">
+    <ul class="user-list"
+        v-if="userList.length">
       <li v-for="(item, key) in userList"
           :key="key">
-        <span>{{ key }}</span>
+        <span>{{ ++key }}</span>
         <span>{{ item.name }}</span>
         <span>{{ item.createDate | format }}</span>
         <span>{{ item.roleName }}</span>
         <!-- <span><button>切换角色</button></span> -->
       </li>
     </ul>
+    <div class=""
+         v-else>no data</div>
   </div>
 </template>
 <script lang="ts">

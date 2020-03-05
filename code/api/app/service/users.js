@@ -1,10 +1,9 @@
 const Service = require("egg").Service;
 
 class UserService extends Service {
-  async findAll () {
-    // const user = await this.app.mysql.select("users");
+  async findAll (roleId) {
     const res = await this.app.mysql.query(
-      `select *,r.roleName from users u,roles r where u.roleId = r.roleId`
+      `select *,r.roleName from users u,roles r where u.roleId = r.roleId and u.roleId > ${roleId}`
     );
     return res;
   }
