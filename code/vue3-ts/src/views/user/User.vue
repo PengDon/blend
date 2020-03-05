@@ -1,13 +1,13 @@
 <template>
   <div class="user-main">
-    <h1>{{viewStore.title}}</h1>
+    <h1>{{ viewStore.title }}</h1>
     <ul class="user-list">
-      <li v-for="(item,key) in userList"
+      <li v-for="(item, key) in userList"
           :key="key">
-        <span>{{key}}</span>
-        <span>{{item.name}}</span>
-        <span>{{item.createDate | format}}</span>
-        <span>{{item.roleType}}</span>
+        <span>{{ key }}</span>
+        <span>{{ item.name }}</span>
+        <span>{{ item.createDate | format }}</span>
+        <span>{{ item.roleName }}</span>
       </li>
     </ul>
   </div>
@@ -61,22 +61,23 @@ export default class Home extends Vue {
 </script>
 <style lang="less" scoped>
 .user-main {
-  text-align: center;
+  width: 6rem;
+  margin: 0 auto;
   > h1 {
-    font-size: 30px;
+    font-size: 0.2rem;
   }
   .user-list {
-    width: 600px;
-    height: 400px;
-    margin: 0 auto;
+    width: 100%;
+    height: 4rem;
     > li {
-      height: 30px;
-      line-height: 30px;
-      font-size: 20px;
-      border-bottom: 1px solid #bdbdbd;
+      text-align: left;
+      height: 0.3rem;
+      line-height: 0.3rem;
+      font-size: 0.14rem;
+      border-bottom: 1px solid #bdbdbd; /*no*/
       > span {
         display: inline-block;
-        padding: 0 6px;
+        padding: 0 0.06rem;
       }
     }
   }

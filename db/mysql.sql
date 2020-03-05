@@ -40,3 +40,6 @@ alter table users add constraint fk_users_roles foreign key (roleId) references 
 
 -- 查询users表用户角色类型
 select u.*,r.roleType from users u,roles r where u.roleId = r.roleId 
+-- 查询users表用户具体角色
+select u.*,r.roleName from users u,roles r where u.roleId = r.roleId 
+
