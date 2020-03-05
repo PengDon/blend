@@ -47,3 +47,23 @@ export const getQueryString = (name: string) => {
   }
   return qs
 }
+
+/**
+ * @description: 日期格式化
+ * @param {type} 时间戳
+ * @return: 返回固定格式日期字符串
+ * @example:
+ */
+export const formatDate = (time: string) => {
+  console.log(time)
+  const date = new Date()
+  let month: string | number = date.getMonth() + 1
+  let strDate: string | number = date.getDate()
+  if (month <= 9) {
+    month = `0${month}`
+  }
+  if (strDate <= 9) {
+    strDate = `0${strDate}`
+  }
+  return `${date.getFullYear()}-${month}-${strDate} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`
+}
