@@ -55,7 +55,6 @@ export const getQueryString = (name: string) => {
  * @example:
  */
 export const formatDate = (time: string) => {
-  console.log(time)
   const date = new Date()
   let month: string | number = date.getMonth() + 1
   let strDate: string | number = date.getDate()

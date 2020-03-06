@@ -3,13 +3,19 @@ const Controller = require("egg").Controller;
 class UserController extends Controller {
   async findAll () {
     const { ctx, service } = this;
-    // 从session获取登录用户信息
-    // ctx.session.userInfo;
-    // 判断当前登录用户角色以及权限[1: 超级管理员 | 2: VIP用户 | 3: 普通用户]
-    // 调用 Service 进行业务处理
-    const res = await service.users.findAll(ctx.session.userInfo.roleId);
-    // 设置响应内容和响应状态码
-    ctx.helper.success(ctx, res, '请求成功');
+    // 判断用户是否登录
+    if (!ctx.session.userInfo) {
+      ctx.helper.error(ctx, null, '请登录后调用')
+    } else {
+      // 从session获取登录用户信息
+      // ctx.session.userInfo;
+      let roleId = ctx.session.userInfo.roleId;
+      // 判断当前登录用户角色以及权限[1: 超级管理员 | 2: VIP用户 | 3: 普通用户]
+      // 调用 Service 进行业务处理
+      const res = await service.users.findAll(roleId);
+      // 设置响应内容和响应状态码
+      ctx.helper.success(ctx, res, '请求成功');
+    }
   }
 
   async findOne () {
