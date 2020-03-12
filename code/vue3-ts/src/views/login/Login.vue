@@ -85,6 +85,10 @@ export default class Login extends Vue {
       this.$router.replace("/");
     } else {
       // 失败场景
+      // 清空输入信息
+      this.params.name = null;
+      this.params.password = null;
+      // 显示错误提示
       this.$dialog.notify({
         mes: result.msg,
         timeout: 2000
