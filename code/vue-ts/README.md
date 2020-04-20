@@ -1,44 +1,29 @@
-# front-t
+# vue-ts
 
-## install dependencies
-
+## Project setup
 ```
 npm install
 ```
 
 ### Compiles and hot-reloads for development
-
 ```
 npm run dev
 ```
 
-### Compiles and minifies for test
-
-```
-npm run test
-```
-
 ### Compiles and minifies for production
-
 ```
-npm run pord
+npm run prod
 ```
 
 ### Run your unit tests
-
 ```
 npm run test:unit
 ```
 
-### Eslint检查与修复
+### Lints and fixes files
 ```
-npm tun lint:fix
+npm run lint
 ```
-
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 
 ## 相关api文档
 * [Vue CLI](https://cli.vuejs.org/zh/guide/)
@@ -51,16 +36,16 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 * [ESLint 中文](http://eslint.cn/)
 * [ESLint](https://eslint.vuejs.org)
 * [Jest](https://jestjs.io/)
+* [Typescript](https://typescript.bootcss.com/)
 * [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## 项目依赖插件
 
-### 简写说明
 
-```
--S --> --save  // 生产阶段的依赖
--D --> --save-dev  // 开发阶段的依赖
-```
+### 简写说明
+* -S --> --save  // 生产阶段的依赖
+* -D --> --save-dev  // 开发阶段的依赖
+
 ### px2rem 适配方案
 
 * [postcss-px2rem](https://www.sogou.com/link?url=hedJjaC291M94sQej51f1MOnl7gebL35rOr7Ga-Xdn_EJTc8qaFczF5A7z5QkkP-)
@@ -87,59 +72,4 @@ postcss: {
     }),
   ],
 },
-```
-
-### [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin)
-
-```
-npm install html-webpack-plugin -D
-```
-
-### [uglifyjs-webpack-plugin](https://github.com/webpack-contrib/uglifyjs-webpack-plugin)
-
-```
-npm install uglifyjs-webpack-plugin -D
-```
-
-### [vuex](https://github.com/robinvdvleuten/vuex-persistedstate)
-
-```
-npm install vuex-persistedstate -S
-```
-
-### [vuex-class](https://github.com/ktsn/vuex-class)
-
-```
-npm install vuex-class -S
-```
-
-### [axios](https://github.com/axios/axios)
-
-```
-npm install axios -S
-```
-
-### [qs](https://www.npmjs.com/package/qs)
-
-```
-npm i qs -S
-```
-
-### [@types/node](https://github.com/DefinitelyTyped/DefinitelyTyped)
-
-```
-npm i @types/node -S
-```
-
-### [@types/qs](https://www.npmjs.com/package/@types/qs)
-
-```
-npm i @types/qs -S
-```
-
-### [style-resources-loader]()
-
-```
-# 解决vue3全局自动引入样式的问题
-vue add style-resources-loader
 ```

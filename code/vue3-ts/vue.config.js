@@ -49,7 +49,7 @@ module.exports = {
         // 写法二
         plugins: [
           require('postcss-px2rem')({
-            remUnit: 100 // 基准大小 baseSize，需要和rem.js中相同，宽屏要除以10，remUnit: 100意思为1rem=100px
+            remUnit: 75 // 设计稿宽度/10
           })
         ]
       },

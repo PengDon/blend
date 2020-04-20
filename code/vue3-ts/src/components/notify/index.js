@@ -14,7 +14,7 @@ const Notify = (options) => {
       document.body.removeChild(vm.$el)
       oDiv = null;
       options.callback && options.callback();
-    }, options.timeout || 3000)
+    }, options.timeout || 2000)
 }
 
 export default Notify

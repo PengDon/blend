@@ -1,7 +1,6 @@
 <template>
   <div class="xx-notify"
-       v-html="msg">
-  </div>
+       v-html="msg"/>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
@@ -21,10 +20,9 @@ export default class Notify extends Vue {
     width: 100%;
     right: 0;
     background-color: rgba(40, 40, 40, 0.85);
-    line-height: 0.28rem;
-    font-size: 0.26rem;
+    font-size: 26px;
     color: #fff;
-    padding: 0.4rem 0.24rem 0.3rem 0.24rem;
+    padding: 30px 24px 30px 24px;
     opacity: 0;
     animation: xx-kf-down-in 0.2s linear forwards;
     word-break: break-all;

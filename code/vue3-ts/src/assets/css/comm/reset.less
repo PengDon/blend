@@ -1,4 +1,4 @@
-/* // 样式重置 */
+/* 样式重置 */
 *,
 *:before,
 *:after {
@@ -183,19 +183,20 @@ table {
   border-spacing: 0;
 }
 
-/* // 公共样式 */
+/* 公共样式 */
 html,
 body {
-  /* // 禁止用户复制 */
+  /* 禁止用户复制 */
   -webkit-user-select: none;
   user-select: none;
+  -webkit-overflow-scrolling: touch; /* ios 滑动  */
 }
 
 .bd {
   border: 1px solid;
 }
 
-/* // (1) 宽度和高度 */
+/* (1) 宽度和高度 */
 .mw-980 {
   max-width: 980px;
   margin: 0 auto;
@@ -209,7 +210,7 @@ body {
   width: 100%;
 }
 
-/* // (2) bfc */
+/* (2) bfc */
 .ovh {
   overflow: hidden;
 }
@@ -218,7 +219,7 @@ body {
   overflow: auto;
 }
 
-/* // (3) display */
+/* (3) display */
 .inb {
   display: inline-block;
 }
@@ -227,7 +228,7 @@ body {
   display: none;
 }
 
-/* // (4) 定位 */
+/* (4) 定位 */
 .fixed {
   position: fixed;
 }
@@ -240,7 +241,7 @@ body {
   position: absolute;
 }
 
-/* // (5) 浮动 */
+/* (5) 浮动 */
 .fl {
   float: left;
 }
@@ -255,41 +256,37 @@ body {
   clear: both;
 }
 
-/* // (6)加粗 */
+/* (6)加粗 */
 .fw400 {
   font-weight: 400;
 }
 
 .bold {
   font-weight: bold;
-  /* // 900 */
+  /* 900 */
 }
 
-/* // (7)居中 */
+/* (7)居中 */
 .tac {
   text-align: center;
 }
 
-/* // (8) 行高 */
+/* (8) 行高 */
 .lh15 {
   line-height: 1.5;
 }
 
-/* // (9) 盒模型 */
+/* (9) 盒模型 */
 .bzb {
   box-sizing: border-box;
 }
 
-/* // (10) 手形光标 */
+/* (10) 手形光标 */
 .cp {
   cursor: pointer;
 }
 
-body {
-  background: #f4f4f4;
-}
-
-/* // 颜色设置 */
+/* 颜色设置 */
 .orange {
   color: #ff5f16;
 }
@@ -298,7 +295,7 @@ body {
   color: #ffffff;
 }
 
-/* // (11) 背景颜色 */
+/* (11) 背景颜色 */
 .bg-green {
   background: green;
 }
@@ -315,27 +312,27 @@ body {
   background: #222426;
 }
 
-/* // (12) 字体大小 */
+/*  (12) 字体大小 */
 .f0 {
   font-size: 0;
 }
 
-/* // 字体相关 */
+/* 字体相关 */
 @0px: 0px;
 
-/* // margin-left */
+/* margin-left */
 .font(@n, @i: 12) when (@i =< @n) {
   .f@{i} {
     font-size: @i+@0px;
   }
 
   .font(@n, (@i + 2));
-  /* // +2得到的结果是1,3,5,7 */
-  /* // .mg-l(@n, (@i + 2)); */
+  /*  +2得到的结果是1,3,5,7 */
+  /*  .mg-l(@n, (@i + 2)); */
 }
 
 .font(36);
-/* // 指定数组
+/*  指定数组
   // @0px: 0px;
   // .ml-loop(@list, @i: 1, @val: extract(@list, @i)) when (length(@list)>=@i) {
   //  .ml@{val} {
@@ -349,27 +346,27 @@ body {
 /* // (13) margin-left */
 @0px: 0px;
 
-/* // margin-left */
+/* margin-left */
 .mg-l(@n, @i: 1) when (@i =< @n) {
   .mg-l-@{i} {
     margin-left: @i+@0px;
   }
 
   .mg-l(@n, (@i + 1));
-  /* // +2得到的结果是1,3,5,7 */
-  /* // .mg-l(@n, (@i + 2)); */
+  /* +2得到的结果是1,3,5,7 */
+  /* .mg-l(@n, (@i + 2)); */
 }
 
 .mg-l(30);
 
-/* // (14) margin-top */
+/* (14) margin-top */
 .mg-t(@n, @i: 1) when (@i =< @n) {
   .mg-t-@{i} {
     margin-top: @i+@0px;
   }
 
   .mg-t(@n, (@i + 1));
-  /* // +2得到的结果是1,3,5,7
+  /* +2得到的结果是1,3,5,7
   // .mg-l(@n, (@i + 2)); */
 }
 
@@ -379,27 +376,27 @@ body {
   margin-top: 90px;
 }
 
-/* // (15) padding-left */
+/* (15) padding-left */
 .pd-l(@n, @i: 1) when (@i =< @n) {
   .pd-l-@{i} {
     padding-left: @i+@0px;
   }
 
   .pd-l(@n, (@i + 1));
-  /* // +2得到的结果是1,3,5,7
+  /* +2得到的结果是1,3,5,7
     // .mg-l(@n, (@i + 2)); */
 }
 
 .pd-l(30);
 
-/* // (16) padding-top */
+/* (16) padding-top */
 .pd-t(@n, @i: 1) when (@i =< @n) {
   .pd-t-@{i} {
     padding-left: @i+@0px;
   }
 
   .pd-t(@n, (@i + 1));
-  /* // +2得到的结果是1,3,5,7
+  /* +2得到的结果是1,3,5,7
     // .mg-l(@n, (@i + 2)); */
 }
 
