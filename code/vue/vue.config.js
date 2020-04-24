@@ -1,13 +1,14 @@
 /*
  * @Author: don
  * @Date: 2020-04-21 17:24:49
- * @LastEditTime: 2020-04-21 17:55:08
+ * @LastEditTime: 2020-04-24 16:14:12
  * @Description: file content
  */
 const path = require('path')
 const pjson = require('./package.json')
 const isProduction = process.env.NODE_ENV === 'production'
 
+// [参考](https://github.com/vuejs/vue-cli/tree/dev/docs/zh/config)
 module.exports = {
   // 部署应用时的基本 URL  [参考](https://cli.vuejs.org/zh/config/#publicpath)
   // publicPath: isProduction ? '/服务器上项目所在文件夹名称/' : '/',
@@ -122,5 +123,4 @@ module.exports = {
       }
     }
   }
-}
 }
