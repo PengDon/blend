@@ -1,8 +1,8 @@
 <template>
   <div class="home">
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HelloWorld msg="萌宠乐园" />
     <div class="banner-area">
-      <DonSlider :list="list" />
+      <DonSlider :list="list" :autoplay="2000" />
     </div>
   </div>
 </template>
@@ -18,17 +18,17 @@ export default {
     HelloWorld,
     DonSlider
   },
-  data () {
+  data() {
     return {
       list: [
         {
-          img: 'https://hinabian-oss.oss-cn-shenzhen.aliyuncs.com/20200420/36117f6574c4979bd5ff2a41a3c5e20c.jpg'
+          img: 'https://dss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1254177258,1722891686&fm=15&gp=0.jpg'
         },
         {
-          img: 'https://hinabian-oss.oss-cn-shenzhen.aliyuncs.com/20200420/c7a2b3b0bd4885689e9b684ddc719b25.jpg'
+          img: 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2751529299,1785036222&fm=26&gp=0.jpg'
         },
         {
-          img: 'https://hinabian-oss.oss-cn-shenzhen.aliyuncs.com/20200420/546056ae68d8a40f9f606e4cc96f988d.png'
+          img: 'https://dss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2913130440,2511112095&fm=26&gp=0.jpg'
         }
       ]
     }

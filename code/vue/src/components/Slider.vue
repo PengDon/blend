@@ -1,7 +1,7 @@
 <template>
   <div class="don-slider">
     <div class="don-slider-wrapper">
-      <div v-for="(item,key) in list" :key="key" class="don-slider-item" :style="curItem">
+      <div v-for="(item,key) in list" :key="key" class="don-slider-item dn" :style="key===index?curStyle:''">
         <a href="">
           <img :src="item.img" alt="">
         </a>
@@ -15,38 +15,63 @@ export default {
   props: {
     list: {
       type: Array,
-      default: function () {
+      default: function() {
         return []
+      }
+    },
+    speed: {
+      type: Number,
+      default: 3000,
+      validator(val) {
+        return /^\d*$/.test(val)
+      }
+    },
+    autoplay: {
+      default: 3000,
+      validator(val) {
+        return /^\d*$/.test(val)
       }
     }
   },
   data() {
     return {
-      index:0,
-      curItem:''
+      index: 0,
+      autoPlayTimer: null, // 自动播放变量用于便于销毁
+      curStyle: ''
     }
   },
-  mounted () {
+  mounted() {
 
   },
   created() {
-   this.autoPlay()
+    this.init()
   },
   methods: {
+    // 初始化
+    init() {
+      this.destroy()
+      this.autoPlay()
+    },
     // 自动播放
-    autoPlay(){
-      setInterval(()=>{
-          if(this.index<this.list.length){
-            this.setTranslate(this.index)
-            this.index++
-          }else{
-            this.index = 0
-          }
-      },3000)
+    autoPlay() {
+      // 自动播放速度小于等于0 或者 list集合长度小于 1 则停止向下执行
+      if (this.autoPlay <= 0 || this.list.length <= 1) return
+
+      this.autoPlayTimer = setInterval(() => {
+        this.index === (this.list.length - 1) ? this.setTranslate(this.index = 0) : this.setTranslate(this.index++)
+      }, this.autoplay)
     },
     // 图片移动动画
-    setTranslate(n){
-      this.curItem = `transform:translateX(-${n}00%);transition-duration: 600ms;`
+    setTranslate(n) {
+      // this.curStyle = `transform:translateX(-${n}00%);transition-duration: 600ms;display:block;`
+      this.curStyle = `display:block;`
+    },
+    ontouch() {
+
+    },
+    // 销毁
+    destroy() {
+      clearInterval(this.autoPlayTimer)
     }
   }
 }
@@ -90,8 +115,7 @@ export default {
       width: 100%;
       height: 100%;
       flex-shrink: 0;
-      transition: transform .6s;
-      transform: translateX(-100%);
+      transition: transform .6ms;
 
       a {
         display: block;
