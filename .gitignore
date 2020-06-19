@@ -4,3 +4,6 @@
 /code/api/run
 /code/api/logs
 /code/vue3-ts/node_modules
+/code/crawler/logs
+/code/crawler/*.txt
+
