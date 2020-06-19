@@ -1,7 +1,7 @@
 '''
 @Author: don
 @Date: 2020-06-17 11:27:48
-@LastEditTime: 2020-06-19 12:23:30
+@LastEditTime: 2020-06-19 15:59:55
 @Description: 日志工具类
 '''
 import time
@@ -37,11 +37,11 @@ class Loggings(object):
         return logger.error(msg)
 
 
-# 测试,只有在当前文件直接执行时，才会执行以下代码
+# # 测试,只有在当前文件直接执行时，才会执行以下代码
 # loggings = Loggings()
 # if __name__ == '__main__':
-#     loggings.info("中文test")
-#     loggings.debug("中文test")
-#     loggings.warning("中文test")
-#     loggings.error("中文test")
+#     loggings.info("info 测试")
+#     loggings.debug("debug 测试")
+#     loggings.warning("warn 测试")
+#     loggings.error("error 测试")
         
