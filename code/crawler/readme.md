@@ -47,6 +47,8 @@ pip -V
 pip install 模块名称
 # 卸载模块
 pip uninstall 模块名称
+# 查看模块是否已安装
+pip show 模块名
 # 升级模块
 pip install --upgrade 模块名称
 # 升级pip
