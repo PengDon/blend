@@ -1,3 +1,10 @@
+/*
+ * @Author: don
+ * @Date: 2020-08-17 11:27:11
+ * @LastEditors: don
+ * @LastEditTime: 2020-09-17 14:08:13
+ * @Description:
+ */
 import { Controller } from 'egg'
 
 export default class LoginController extends Controller {
@@ -16,12 +23,12 @@ export default class LoginController extends Controller {
         // 生成 token 的方式
         const token = app.jwt.sign(
           {
-            username: data.username // 需要存储的 token 数据
+            username: data.username, // 需要存储的 token 数据
           },
           app.config.jwt.secret
         )
         // 返回 token 到前端
-        ctx.body = { msg: '登录成功', data: token }
+        ctx.body = { msg: '登录成功', data: token, code: 200 }
       } else {
         ctx.body = { msg: '密码错误' }
       }

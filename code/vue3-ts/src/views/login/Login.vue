@@ -27,6 +27,7 @@ export default class Login extends Vue {
 
   created() {
     // Notify({ mes: 'notify is show' })
+    // console.log(this.$dialog)
   }
 
   private params: any = {

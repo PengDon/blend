@@ -1,10 +1,8 @@
 <template>
   <div class="user-main">
     <h1>{{ viewStore.title }}</h1>
-    <ul class="user-list"
-        v-if="userList.length">
-      <li v-for="(item, key) in userList"
-          :key="key">
+    <ul class="user-list" v-if="userList.length">
+      <li v-for="(item, key) in userList" :key="key">
         <span>{{ ++key }}</span>
         <span>{{ item.name }}</span>
         <span>{{ item.createDate | format }}</span>
@@ -12,16 +10,15 @@
         <!-- <span><button>切换角色</button></span> -->
       </li>
     </ul>
-    <div class=""
-         v-else>no data</div>
+    <div class="" v-else>no data</div>
   </div>
 </template>
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import { State, Action, Mutation } from "vuex-class";
-import { formatDate } from "@/utils";
-import { IViewState } from "@/store/view";
-import axios from "axios";
+import { Component, Vue } from 'vue-property-decorator'
+import { State, Action, Mutation } from 'vuex-class'
+import { formatDate } from '@/utils'
+import { IViewState } from '@/store/view'
+import axios from 'axios'
 
 @Component({
   // // 第一种写法
@@ -31,23 +28,21 @@ import axios from "axios";
   // 第二种写法
   filters: {
     format(value: string) {
-      return formatDate(value);
-    }
-  }
+      return formatDate(value)
+    },
+  },
 })
 export default class Home extends Vue {
-  @State private viewStore!: IViewState;
-  @Action("viewStore/setTitle") private changeTitleAc!: (
-    params: string
-  ) => void;
-  @Action("user/getAllUser") private getAllUser!: () => Promise<any>;
+  @State private viewStore!: IViewState
+  @Action('viewStore/setTitle') private changeTitleAc!: (params: string) => void
+  @Action('user/getAllUser') private getAllUser!: () => Promise<any>
 
   created() {
-    this.changeTitleAc("用户列表");
-    this.getUsers();
+    this.changeTitleAc('用户列表')
+    this.getUsers()
   }
 
-  private userList: any = [];
+  private userList: any = []
 
   // // 直接axios调用
   // private async getUser() {
@@ -57,9 +52,9 @@ export default class Home extends Vue {
 
   // 调用vuex模块中定义的方法
   private async getUsers() {
-    let res = await this.getAllUser();
-    // console.log(res.data);
-    this.userList = res.data;
+    let res = await this.getAllUser()
+    // console.log(res)
+    this.userList = res
   }
 }
 </script>
