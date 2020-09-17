@@ -1,15 +1,15 @@
 /*
  * @Author: don
  * @Date: 2020-01-22 12:49:17
- * @LastEditTime : 2020-01-22 16:47:16
+ * @LastEditTime: 2020-09-17 11:20:26
  * @Description: file content
  */
 // import Dialog from './comp/dialog'
-import Notify from './comp/notify'
+import Notify from '@/components/notify'
 
 const components = {
   // Dialog,
-  Notify
+  Notify,
 }
 
 const install = (Vue) => {
@@ -18,13 +18,13 @@ const install = (Vue) => {
   // )
 
   Vue.prototype.$dialog = {
-    notify: Notify
+    notify: Notify,
   }
 }
 
 const XX = {
   install,
-  ...components
+  ...components,
 }
 
 // auto install
