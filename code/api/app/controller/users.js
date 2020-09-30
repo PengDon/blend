@@ -1,8 +1,18 @@
+/*
+ * @Author: don
+ * @Date: 2020-08-17 11:22:51
+ * @LastEditors: don
+ * @LastEditTime: 2020-09-30 17:15:48
+ * @Description: 
+ */
 const Controller = require("egg").Controller;
 
 class UserController extends Controller {
   async findAll () {
     const { ctx, service } = this;
+    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
+    console.log(ctx.session.userInfo)
+    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
     // 判断用户是否登录
     if (!ctx.session.userInfo) {
       ctx.helper.error(ctx, null, '请登录后调用')
@@ -45,6 +55,18 @@ class UserController extends Controller {
     const params = ctx.request.body;
     const res = await service.users.update(id, params);
     ctx.helper.success(ctx, res);
+  }
+
+  async userInfo(){
+    const {ctx,service } = this;
+    const userInfo = null
+    if(ctx.session.userInfo){
+      userInfo = ctx.session.userInfo
+      ctx.helper.success(ctx, userInfo);
+    } else {
+      ctx.helper.error(ctx, userInfo, '请登录后重试');
+    }
+    
   }
 }
 

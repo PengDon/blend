@@ -1,40 +1,50 @@
-const Controller = require("egg").Controller;
+/*
+ * @Author: don
+ * @Date: 2020-08-17 11:22:51
+ * @LastEditors: don
+ * @LastEditTime: 2020-09-30 17:22:53
+ * @Description:
+ */
+const Controller = require('egg').Controller
 
 class LoginController extends Controller {
   // 登录
-  async signIn () {
-    const { ctx, service, app } = this;
+  async signIn() {
+    const { ctx, service, app } = this
     // 获取用户传递的参数
-    const params = ctx.request.body;
+    const params = ctx.request.body
+    // console.log('---------------------')
+    // console.log(params)
+    // console.log('---------------------')
     // 调用service方法
-    const res = await service.login.signIn(params);
+    const res = await service.login.signIn(params)
     // 进行data数据验证，判断登录是否成功
-    let msg = "登录成功!";
-    let data = null;
+    let msg = '登录成功!'
+    let data = null
     if (res) {
       if (res.password === params.password) {
         // 登录成功后，生成token
         const token = app.jwt.sign(
           {
-            username: res.username // 需要存储的 token 数据
+            username: res.username, // 需要存储的 token 数据
           },
           app.config.jwt.secret
-        );
+        )
         // 返回 token 到前端
-        data = token;
+        data = token
         // 把用户信息存储到session中
-        ctx.session.userInfo = res;
-        ctx.helper.success(ctx, data, msg);
+        ctx.session.userInfo = res
+        ctx.helper.success(ctx, data, msg)
       } else {
-        msg = "密码错误！";
-        ctx.helper.error(ctx, data, msg);
+        // 密码错误
+        msg = '用户名或者密码错误！'
+        ctx.helper.error(ctx, data, msg)
       }
     } else {
-      msg = "用户不存在!";
-      ctx.helper.error(ctx, data, msg);
+      msg = '用户不存在!'
+      ctx.helper.error(ctx, data, msg)
     }
-
   }
 }
 
-module.exports = LoginController;
+module.exports = LoginController

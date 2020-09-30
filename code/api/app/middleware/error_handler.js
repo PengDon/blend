@@ -1,3 +1,10 @@
+/*
+ * @Author: don
+ * @Date: 2020-08-17 11:22:51
+ * @LastEditors: don
+ * @LastEditTime: 2020-09-30 16:13:32
+ * @Description: 
+ */
 module.exports = () => {
     return async function errorHandler(ctx, next) {
         try {
