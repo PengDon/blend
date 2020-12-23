@@ -15,34 +15,34 @@ export default (app: Application) => {
     {
       name: {
         type: String,
-        required: true,
+        required: true
       },
       description: {
-        type: String,
+        type: String
       },
       onSale: {
         type: Boolean,
-        default: false,
+        default: false
       },
       content: {
         type: String,
-        default: '',
+        default: ''
       },
       quantity: {
         type: Number,
-        default: 10,
+        default: 10
       },
       price: {
         type: Number,
-        default: 0.0,
+        default: 0.0
       },
       coverImg: {
-        type: String,
-      },
+        type: String
+      }
     },
     {
       collection: 'Product', // 表名
-      timestamps: true,
+      timestamps: true
     },
   );
   // mongoose.model('model名称','model数据规范','对应的表名')

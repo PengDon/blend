@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-12-22 10:26:09
  * @LastEditors: don
- * @LastEditTime: 2020-12-22 11:42:43
+ * @LastEditTime: 2020-12-23 11:34:34
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
@@ -19,31 +19,39 @@ export default (appInfo: EggAppInfo) => {
 
   // add mongodb connect
   config.mongoose = {
-    url: 'mongodb://127.0.0.1/work',
+    url: 'mongodb://127.0.0.1/work'
   };
 
   config.security = {
     csrf: {
-      ignore: [ '/api' ],
-    },
+      ignore: [ '/api' ]
+    }
   };
 
   config.cluster = {
     listen: {
       path: '',
       port: 7002,
-      hostname: '127.0.0.1',
-    },
+      hostname: '127.0.0.1'
+    }
+  };
+
+  // nunjucks view
+  config.view = {
+    defaultViewEngine: 'nunjucks',
+    mapping: {
+      '.njk': 'nunjucks'
+    }
   };
 
   // add your special config in here
   const bizConfig = {
-    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
+    sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`
   };
 
   // the return config will combines to EggAppConfig
   return {
     ...config,
-    ...bizConfig,
+    ...bizConfig
   };
 };

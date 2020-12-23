@@ -32,7 +32,7 @@ export default class BaseController extends Controller {
     ctx.body = {
       code: 8200,
       msg: '获取单条记录',
-      data: result,
+      data: result
     };
   }
   /**
@@ -45,7 +45,7 @@ export default class BaseController extends Controller {
     ctx.body = {
       code: '1',
       msg: '新增成功',
-      data: result,
+      data: result
     };
   }
   /**
@@ -58,7 +58,7 @@ export default class BaseController extends Controller {
     ctx.body = {
       code: '1',
       msg: '修改成功',
-      data: result,
+      data: result
     };
   }
   /**
@@ -71,7 +71,7 @@ export default class BaseController extends Controller {
     ctx.body = {
       code: '1',
       msg: '删除成功',
-      data: result,
+      data: result
     };
   }
 }
