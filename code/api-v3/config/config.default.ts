@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-12-22 10:26:09
  * @LastEditors: don
- * @LastEditTime: 2020-12-23 11:34:34
+ * @LastEditTime: 2020-12-24 14:14:44
  * @Description:
  */
 import { EggAppConfig, EggAppInfo, PowerPartial } from 'egg';
@@ -19,7 +19,12 @@ export default (appInfo: EggAppInfo) => {
 
   // add mongodb connect
   config.mongoose = {
-    url: 'mongodb://127.0.0.1/work'
+    url: 'mongodb://127.0.0.1/work',
+    options:{
+      // 用于解决：mongoDb数据库报错问题，报错信息“current Server Discovery and Monitoring engine is deprecated, and will be removed in a future version. 
+      // To use the new Server Discover and Monitoring engine, pass option { useUnifiedTopology: true } to the MongoClient constructor”
+      useUnifiedTopology : true
+    }
   };
 
   config.security = {
@@ -31,8 +36,8 @@ export default (appInfo: EggAppInfo) => {
   config.cluster = {
     listen: {
       path: '',
-      port: 7002,
-      hostname: '127.0.0.1'
+      port: 7001,
+      hostname: '0.0.0.0'
     }
   };
 

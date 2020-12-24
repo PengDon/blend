@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-12-22 10:40:48
  * @LastEditors: don
- * @LastEditTime: 2020-12-23 09:51:11
+ * @LastEditTime: 2020-12-24 09:26:13
  * @Description:
  */
 import { Service, Context } from 'egg';
@@ -26,10 +26,10 @@ export default class BaseService extends Service {
    * @param per 每页数量
    */
   async list(query = {}, page = 1, per = 10) { // ts中指定了值，可以不加数据类型
-    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
-    console.log(this.app.model);
-    console.log(this.model);
-    console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    // console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
+    // console.log(this.app.model);
+    // console.log(this.model);
+    // console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx');
     const data = await this.app.model[this.model].find(query).limit(per).skip((page - 1) * per)
       .sort({
         _id: -1

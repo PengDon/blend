@@ -1,3 +1,10 @@
+<!--
+ * @Author: don
+ * @Date: 2020-12-22 18:57:04
+ * @LastEditors: don
+ * @LastEditTime: 2020-12-24 10:32:19
+ * @Description: 
+-->
 
 # eggjs+typescript+restful+mongodb
 
@@ -18,6 +25,11 @@ npm run dev
 ## mongodb支持
 ```sh
 npm i --save egg-mongoose
+```
+
+## Nunjucks模板引擎
+```sh
+npm i egg-view-nunjucks --save
 ```
 
 ## 接口设计遵循restful规则
