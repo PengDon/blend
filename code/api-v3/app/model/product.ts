@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-12-22 11:44:39
  * @LastEditors: don
- * @LastEditTime: 2020-12-22 18:22:17
+ * @LastEditTime: 2020-12-25 16:32:11
  * @Description:
  */
 
@@ -41,7 +41,7 @@ export default (app: Application) => {
       }
     },
     {
-      collection: 'Product', // 表名
+      collection: 'product', // 表名
       timestamps: true
     },
   );

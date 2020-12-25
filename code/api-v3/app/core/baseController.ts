@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2020-12-22 10:40:36
  * @LastEditors: don
- * @LastEditTime: 2020-12-22 17:35:12
+ * @LastEditTime: 2020-12-25 11:36:54
  * @Description:
  */
 import { Controller, Context } from 'egg';
@@ -17,7 +17,7 @@ export default class BaseController extends Controller {
    * 列表
    * get
    */
-  async index() {
+  public async index() {
     const { ctx } = this;
     const result = await ctx.service[this.serviceName].list({});
     ctx.body = result;
@@ -26,7 +26,7 @@ export default class BaseController extends Controller {
    * 单个
    * /:id
    */
-  async show() {
+  public async show() {
     const { ctx } = this;
     const result = await ctx.service[this.serviceName].one(ctx.params.id);
     ctx.body = {
@@ -39,7 +39,7 @@ export default class BaseController extends Controller {
    * 新增
    * post
    */
-  async create() {
+  public async create() {
     const { ctx } = this;
     const result = await ctx.service[this.serviceName].save(ctx.request.body);
     ctx.body = {
@@ -52,7 +52,7 @@ export default class BaseController extends Controller {
    * 修改
    * put
    */
-  async update() {
+  public async update() {
     const { ctx } = this;
     const result = await ctx.service[this.serviceName].update(ctx.params.id, ctx.request.body);
     ctx.body = {
@@ -65,7 +65,7 @@ export default class BaseController extends Controller {
    * 删除
    * /:id
    */
-  async destroy() {
+  public async destroy() {
     const { ctx } = this;
     const result = await ctx.service[this.serviceName].deleteOne(ctx.params.id);
     ctx.body = {
@@ -74,5 +74,7 @@ export default class BaseController extends Controller {
       data: result
     };
   }
+
+  
 }
 

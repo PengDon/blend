@@ -5,11 +5,13 @@ import 'egg';
 import ExportHome from '../../../app/controller/home';
 import ExportProduct from '../../../app/controller/product';
 import ExportProject from '../../../app/controller/project';
+import ExportUser from '../../../app/controller/user';
 
 declare module 'egg' {
   interface IController {
     home: ExportHome;
     product: ExportProduct;
     project: ExportProject;
+    user: ExportUser;
   }
 }

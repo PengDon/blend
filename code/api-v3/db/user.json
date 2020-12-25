@@ -1,0 +1,10 @@
+[
+  {
+    "name":"admin",
+    "password":"0123456",
+    "role": 1,
+    "createTime":"20201225",
+    "status": 0,
+    "uuid":"xt001"
+  }
+]
