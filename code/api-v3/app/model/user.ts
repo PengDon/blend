@@ -43,4 +43,4 @@ export default (app: Application) => {
     },
   );
   return mongoose.model('user', userSchema);
-}
+};
