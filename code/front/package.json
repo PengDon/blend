@@ -1,0 +1,23 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "description": "vue typescript webpack less route",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --port 3000 --hot --inline --devtool eval --config ./build/webpack.dev.js",
+    "build": "webpack --progress --colors"
+  },
+  "author": "don",
+  "license": "ISC",
+  "devDependencies": {
+    "html-webpack-plugin": "^5.0.0",
+    "vue-loader": "^15.9.6",
+    "vue-template-compiler": "^2.6.12",
+    "webpack": "^5.20.2",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "vue": "^2.6.12"
+  }
+}

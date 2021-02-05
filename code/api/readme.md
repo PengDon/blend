@@ -1,43 +1,76 @@
+<!--
+ * @Author: don
+ * @Date: 2020-12-22 18:57:04
+ * @LastEditors: don
+ * @LastEditTime: 2020-12-28 16:35:40
+ * @Description:
+-->
 
-## app/extend/xxx.js下的各this指向
+# eggjs+typescript+restful+mongodb
 
-application.js —— this指向：app对象
-调用：this.app
+## 前提
 
-context.js —— this指向：ctx对象
-调用：this.ctx
- 
-request.js —— this指向：ctx.request对象
-调用：this.ctx.request
- 
-response.js —— this指向：ctx.response对象
-调用：this.ctx.response
+- Node.js 8.x
+- Typescript 2.8+
 
-helper.js —— this指向：ctx.helper对象
-调用：this.ctx.helper
+## 快速构建基本结构
 
+```sh
+mkdir work_manage && cd work_manage
+npm init egg --type=ts
+npm i
+npm run dev
+```
 
-## RESTfulHTTPStatus
+## mongodb 支持
 
-200 OK - [GET]：服务器成功返回用户请求的数据，该操作是幂等的（Idempotent）。
-201 CREATED - [POST/PUT/PATCH]：用户新建或修改数据成功。
-202 Accepted - [*]：表示一个请求已经进入后台排队（异步任务）
-204 NO CONTENT - [DELETE]：用户删除数据成功。
-400 INVALID REQUEST - [POST/PUT/PATCH]：用户发出的请求有错误，服务器没有进行新建或修改数据的操作，该操作是幂等的。
-401 Unauthorized - [*]：表示用户没有权限（令牌、用户名、密码错误）。
-403 Forbidden - [*] 表示用户得到授权（与401错误相对），但是访问是被禁止的。
-404 NOT FOUND - [*]：用户发出的请求针对的是不存在的记录，服务器没有进行操作，该操作是幂等的。
-406 Not Acceptable - [GET]：用户请求的格式不可得（比如用户请求JSON格式，但是只有XML格式）。
-410 Gone -[GET]：用户请求的资源被永久删除，且不会再得到的。
-422 Unprocesable entity - [POST/PUT/PATCH] 当创建一个对象时，发生一个验证错误。
-500 INTERNAL SERVER ERROR - [*]：服务器发生错误，用户将无法判断发出的请求是否成功
+```sh
+npm i --save egg-mongoose
+```
 
-/**
-* 在接口处理发生错误的时候，如果是客户端请求参数导致的错误，返回 4xx 状态码，
-* 如果是服务端自身的处理逻辑错误，返回 5xx 状态码。
-* 所有的异常对象都是对这个异常状态的描述，其中 error 字段是错误的描述，detail 字段（可选）是导致错误的详细原因。
-*/
+## Nunjucks 模板引擎
 
-eg:
-533 INTERNAL SERVER ERROR - [*]：keystore 不存在
-534 INTERNAL SERVER ERROR - [*]：keystore 已过期
+```sh
+npm i egg-view-nunjucks --save
+```
+
+## 接口设计遵循 restful 规则
+
+- 约定
+
+```js
+GET（Select）：查询
+POST（Create）：创建
+PUT（Replace）：替换
+PATCH（Update）：更新
+DELETE（Remove）：删除
+```
+
+- 例子
+
+```sh
+GET /movies
+POST /movies
+GET /movies/12
+PUT /movies/12
+PATCH /movies/12
+DELETE /movies/12
+```
+
+## 参考
+
+- [egg-mongoose](https://github.com/eggjs/egg-mongoose)
+- [egg 官网](https://eggjs.org/zh-cn/)
+- [Nunjucks](https://nunjucks.bootcss.com/)
+- [egg-view-nunjucks](https://github.com/eggjs/egg-view-nunjucks)
+- [mongoose 中文](http://www.mongoosejs.net/docs/guide.html)
+- [typescript 文档](https://www.tslang.cn/docs/home.html)
+- [restful 英文](http://www.restfulapi.nl/)
+- [restful 中文](http://notes.veryide.com/restful.md)
+- [jinja2 文档](https://jinja.palletsprojects.com/en/2.11.x/templates/#)
+- [css 参考手册](https://www.runoob.com/cssref/css-reference.html)
+- [ESLint](http://eslint.cn/)
+- [mongoose 英文文档](https://mongoosejs.com/docs/index.html)
+- []()
+- []()
+- []()

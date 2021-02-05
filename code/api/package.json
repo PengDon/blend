@@ -1,23 +1,59 @@
 {
-  "name": "api",
+  "name": "work-manage",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "dev": "egg-bin dev",
-    "test": "egg-bin test",
-    "cov": "egg-bin cov"
+  "description": "none",
+  "private": true,
+  "egg": {
+    "typescript": true,
+    "declarations": true
   },
-  "author": "",
-  "license": "ISC",
+  "scripts": {
+    "start": "egg-scripts start --daemon --title=egg-server-work-manage",
+    "stop": "egg-scripts stop --title=egg-server-work-manage",
+    "dev": "egg-bin dev",
+    "debug": "egg-bin debug",
+    "test-local": "egg-bin test",
+    "test": "npm run lint -- --fix && npm run test-local",
+    "cov": "egg-bin cov",
+    "tsc": "ets && tsc -p tsconfig.json",
+    "ci": "npm run lint && npm run cov && npm run tsc",
+    "autod": "autod",
+    "lint": "eslint . --ext .ts",
+    "clean": "ets clean"
+  },
   "dependencies": {
-    "egg": "^2.26.0",
-    "egg-cors": "^2.2.3",
-    "egg-jwt": "^3.1.7",
-    "egg-mysql": "^3.0.0"
+    "egg": "^2.29.1",
+    "egg-mongoose": "^3.3.1",
+    "egg-scripts": "^2.13.0",
+    "egg-view-nunjucks": "^2.2.0"
   },
   "devDependencies": {
-    "egg-bin": "^4.14.0",
-    "egg-mock": "^3.25.0"
-  }
+    "@types/mocha": "^2.2.40",
+    "@types/node": "^7.0.12",
+    "@types/supertest": "^2.0.0",
+    "autod": "^3.1.1",
+    "autod-egg": "^1.1.0",
+    "egg-bin": "^4.15.0",
+    "egg-ci": "^1.8.0",
+    "egg-mock": "^4.0.1",
+    "eslint": "^6.7.2",
+    "eslint-config-egg": "^8.0.0",
+    "tslib": "^2.0.3",
+    "typescript": "^3.9.7"
+  },
+  "engines": {
+    "node": ">=8.9.0"
+  },
+  "ci": {
+    "version": "8"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "eslintIgnore": [
+    "coverage"
+  ],
+  "author": "don",
+  "license": "MIT"
 }
