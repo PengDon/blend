@@ -2,8 +2,12 @@
   <article>
     <CommHeader />
     <div class="wrap">
-      <aside class="left"></aside>
-      <section class="right"></section>
+      <aside class="left" v-if="isShowLeft">
+        <slot name="left"></slot>
+      </aside>
+      <section class="right">
+        <slot name="right"></slot>
+      </section>
     </div>
     <CommFooter />
   </article>
@@ -13,6 +17,11 @@
 export default {
   name: 'commLayout',
   props: {},
+  data() {
+    return {
+      isShowLeft: true,
+    }
+  },
   methods: {},
 }
 </script>
@@ -25,7 +34,8 @@ export default {
   .left {
     flex: 0 0 200px; /* 左侧固定200px */
     height: 500px;
-    background: red;
+    // background: red;
+    border-right: 1px solid #cccccc;
   }
   .right {
     /* 此处解释下
@@ -34,7 +44,7 @@ export default {
     */
     flex: 1; /* 随父级变化 */
     height: 500px;
-    background: burlywood;
+    // background: burlywood;
   }
 }
 </style>
