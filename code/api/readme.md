@@ -1,76 +1,65 @@
-<!--
- * @Author: don
- * @Date: 2020-12-22 18:57:04
- * @LastEditors: don
- * @LastEditTime: 2020-12-28 16:35:40
- * @Description:
--->
 
-# eggjs+typescript+restful+mongodb
 
-## 前提
 
-- Node.js 8.x
-- Typescript 2.8+
+## 安装插件
 
-## 快速构建基本结构
+* [egg-mongoose](https://www.npmjs.com/package/egg-mongoose)
+```sh
+npm i egg-mongoose --save
+```
+
+
+
+
+
+
+
+
+## pm2
 
 ```sh
-mkdir work_manage && cd work_manage
-npm init egg --type=ts
-npm i
-npm run dev
+# 显示所有进程日志
+pm2 logs
+# 停止所有进程
+pm2 stop all 
+# 重启所有进程
+pm2 restart all
+# 0秒停机重载进程 (用于 NETWORKED 进程)
+pm2 reload all
+# 停止指定的进程
+pm2 stop 0
+# 重启指定的进程
+pm2 restart 0
+# 产生 init 脚本 保持进程活着
+pm2 startup
+# 运行健壮的 computer API endpoint
+pm2 web
+# 杀死指定的进程
+pm2 delete 0
+# 杀死全部进程
+pm2 delete all
+# 列出由pm2管理的所有进程信息,还会显示一个进程会被启动多少次，因为没处理的异常。
+pm2 list
+# 监视每个node进程的CPU和内存的使用情况
+pm2 monit 
+# 用pm2启动指定文件
+pm2 start server.js
 ```
 
-## mongodb 支持
 
-```sh
-npm i --save egg-mongoose
-```
+## 注意
 
-## Nunjucks 模板引擎
+* 问题
+  
+使用Egg写接口时，当请求为POST请求，使用ctx.request.body即可接收到参数。如果Body为form-data时，用ctx.request.body是接收不到参数的，那是因为Egg封装里面只接收x-www-form-urlencoded这种类型我们只要将Body的类型改为x-www-form-urlencoded即可用ctx.request.body接收参数
 
-```sh
-npm i egg-view-nunjucks --save
-```
 
-## 接口设计遵循 restful 规则
 
-- 约定
 
-```js
-GET（Select）：查询
-POST（Create）：创建
-PUT（Replace）：替换
-PATCH（Update）：更新
-DELETE（Remove）：删除
-```
 
-- 例子
 
-```sh
-GET /movies
-POST /movies
-GET /movies/12
-PUT /movies/12
-PATCH /movies/12
-DELETE /movies/12
-```
 
-## 参考
 
-- [egg-mongoose](https://github.com/eggjs/egg-mongoose)
-- [egg 官网](https://eggjs.org/zh-cn/)
-- [Nunjucks](https://nunjucks.bootcss.com/)
-- [egg-view-nunjucks](https://github.com/eggjs/egg-view-nunjucks)
-- [mongoose 中文](http://www.mongoosejs.net/docs/guide.html)
-- [typescript 文档](https://www.tslang.cn/docs/home.html)
-- [restful 英文](http://www.restfulapi.nl/)
-- [restful 中文](http://notes.veryide.com/restful.md)
-- [jinja2 文档](https://jinja.palletsprojects.com/en/2.11.x/templates/#)
-- [css 参考手册](https://www.runoob.com/cssref/css-reference.html)
-- [ESLint](http://eslint.cn/)
-- [mongoose 英文文档](https://mongoosejs.com/docs/index.html)
-- []()
-- []()
-- []()
+
+
+

@@ -1,0 +1,52 @@
+{
+  "name": "xxui",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "lib/index/index.js",
+  "files": [
+    "lib"
+  ],
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "dev": "webpack-dev-server --port 5000 --hot --watch --inline --open --config ./build/dev.config.js",
+    "build": "webpack --progress --colors --config ./build/prod.config.js",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook -o docs"
+  },
+  "dependencies": {
+    "vue": "^2.6.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "@storybook/addon-actions": "^6.1.15",
+    "@storybook/addon-essentials": "^6.1.15",
+    "@storybook/addon-links": "^6.1.15",
+    "@storybook/vue": "^6.1.15",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-import": "^1.13.3",
+    "css-loader": "^5.0.1",
+    "html-webpack-plugin": "^4.5.1",
+    "less": "^4.1.1",
+    "less-loader": "^7.3.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.1.1",
+    "vue-loader": "^15.9.1",
+    "vue-template-compiler": "^2.6.11",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PengDon/vue-learn.git"
+  },
+  "author": "don",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PengDon/vue-learn/issues"
+  },
+  "homepage": "https://github.com/PengDon/vue-learn#readme"
+}
