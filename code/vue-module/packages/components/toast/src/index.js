@@ -2,7 +2,7 @@
  * @Author: don
  * @Date: 2021-02-01 15:04:57
  * @LastEditors: don
- * @LastEditTime: 2021-02-02 12:59:53
+ * @LastEditTime: 2021-02-08 18:33:09
  * @Description: 
  */
 import Vue from 'vue'
@@ -21,8 +21,7 @@ ToastConstructor.prototype.closeToast = function () {
 }
 
 const Toast = (options = {}) => {
-  console.log(options)
-  instance.mes = options.mes
+  instance.mes = options.mes||''
   instance.icon = options.icon
   instance.timeout = ~~options.timeout || 2000
   instance.callback = options.callback
