@@ -50,3 +50,19 @@ select * from users;
 select * from roles;
 
 
+-- 如果存在roles表则删除
+drop table if exists sidebar;
+-- 创建侧边菜单栏
+create table sidebar(
+	id int unsigned auto_increment, -- 侧边栏id
+	title varchar(20) not null, -- 侧边栏标题,不能为空
+	link varchar(50), -- 侧边栏地址,可以为空
+	deep int not null default 1, -- 侧边栏层级，默认为1，值越大层级越深
+	primary key (`id`)
+)
+
+-- 插入测试数据
+insert into sidebar(title) values ('用户管理')
+
+
+

@@ -1,16 +1,16 @@
 <template>
-    <BaseLayout/>
+  <BaseLayout />
 </template>
 <script>
 export default {
-  name: "App",
+  name: 'App',
   mounted() {
-    // this.$toast({mes:'嘻嘻嘻嘻嘻嘻',timeout:2000})
+    this.$toast({ mes: '嘻嘻嘻嘻嘻嘻', timeout: 2000 })
   },
-};
+}
 </script>
 <style lang="less">
-  body {
-    margin: 0;
-  }
+body {
+  margin: 0;
+}
 </style>
