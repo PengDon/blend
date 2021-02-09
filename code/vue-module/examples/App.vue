@@ -1,5 +1,5 @@
 <template>
-    <commLayout/>
+    <BaseLayout/>
 </template>
 <script>
 export default {

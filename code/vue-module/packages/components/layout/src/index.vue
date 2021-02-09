@@ -1,21 +1,21 @@
 <template>
   <article>
     <CommHeader />
-    <div class="wrap">
+    <main class="wrap">
       <aside class="left" v-if="isShowLeft">
         <slot name="left"></slot>
       </aside>
       <section class="right">
         <slot name="right"></slot>
       </section>
-    </div>
+    </main>
     <CommFooter />
   </article>
 </template>
 
 <script>
 export default {
-  name: 'commLayout',
+  name: 'BaseLayout',
   props: {},
   data() {
     return {
