@@ -49,11 +49,14 @@ pm2 start server.js
 
 ## 注意
 
-* 问题
+* 问题1
   
 使用Egg写接口时，当请求为POST请求，使用ctx.request.body即可接收到参数。如果Body为form-data时，用ctx.request.body是接收不到参数的，那是因为Egg封装里面只接收x-www-form-urlencoded这种类型我们只要将Body的类型改为x-www-form-urlencoded即可用ctx.request.body接收参数
 
 
+* 问题2
+
+现在不能同时连接mysql和mongodb数据库
 
 
 
