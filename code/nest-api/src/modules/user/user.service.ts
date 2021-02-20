@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 @Injectable()
 export class UserService {
   fetch(id): string {
-    return `查询id:${id} 用户信息`;
+    return `query id:${id} user info`;
   }
 
   save(message): string {

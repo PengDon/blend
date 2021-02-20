@@ -3,11 +3,14 @@ import { Module, MiddlewareConsumer, RequestMethod } from '@nestjs/common';
 // logger
 import { LoggerMiddleware } from './common/middleware/logger.middleware';
 
+// exception
+import { ExceptionModule } from './modules/exception/exception.module';
+
 // modules
 import { UserModule } from './modules/user/user.module';
 
 @Module({
-  imports: [UserModule],
+  imports: [UserModule, ExceptionModule],
 })
 export class AppModule {
   configure(consumer: MiddlewareConsumer) {
