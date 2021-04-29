@@ -1,0 +1,19 @@
+{
+  "name": "vuepress-theme-don",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": "don",
+  "scripts": {
+    "dev": "vuepress dev blog --temp .temp",
+    "build": "vuepress build blog"
+  },
+  "devDependencies": {
+    "json2yaml": "^1.1.0",
+    "vuepress": "^1.8.2"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.2",
+    "log4js": "^6.3.0"
+  }
+}
